@@ -9,22 +9,22 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: Single HTML file with embedded CSS and JS, no external dependencies beyond Google Fonts
-- [ ] **FOUND-02**: CSS custom properties for full palette (--black, --ivory, --champagne, --platinum, --plum, --oxblood, --bone)
-- [ ] **FOUND-03**: Typography system — Cormorant Garamond italic for display (never bold, line-height 1.05-1.1), Jost 300 all-caps for utility
-- [ ] **FOUND-04**: Responsive layout — desktop multi-column grids collapse to single-column on mobile
-- [ ] **FOUND-05**: Generous vertical rhythm between sections (minimum 16vh padding)
-- [ ] **FOUND-06**: SVG lozenge motif system — elongated diamond used as dividers, accents, and seal (not a checkerboard)
-- [ ] **FOUND-07**: Google Fonts loaded with preload strategy to prevent flash of unstyled text
+- [x] **FOUND-01**: Single HTML file with embedded CSS and JS, no external dependencies beyond Google Fonts
+- [x] **FOUND-02**: CSS custom properties for full palette (--black, --ivory, --champagne, --platinum, --plum, --oxblood, --bone)
+- [x] **FOUND-03**: Typography system — Cormorant Garamond italic for display (never bold, line-height 1.05-1.1), Jost 300 all-caps for utility
+- [x] **FOUND-04**: Responsive layout — desktop multi-column grids collapse to single-column on mobile
+- [x] **FOUND-05**: Generous vertical rhythm between sections (minimum 16vh padding)
+- [x] **FOUND-06**: SVG lozenge motif system — elongated diamond used as dividers, accents, and seal (not a checkerboard)
+- [x] **FOUND-07**: Google Fonts loaded with preload strategy to prevent flash of unstyled text
 
 ### Navigation
 
-- [ ] **NAV-01**: Fixed dark nav bar floating above all content
-- [ ] **NAV-02**: Left: "HOUSE HARLEQUIN" in Jost, all caps, 11px, letter-spacing 0.25em, champagne
-- [ ] **NAV-03**: Right: COLLECTION / THE HOUSE / ENQUIRE links — same type treatment
-- [ ] **NAV-04**: Center: small lozenge SVG divider in champagne
-- [ ] **NAV-05**: On scroll past hero: backdrop-filter blur(12px) + slight darkening
-- [ ] **NAV-06**: Smooth scroll to sections on nav link click
+- [x] **NAV-01**: Fixed dark nav bar floating above all content
+- [x] **NAV-02**: Left: "HOUSE HARLEQUIN" in Jost, all caps, 11px, letter-spacing 0.25em, champagne
+- [x] **NAV-03**: Right: COLLECTION / THE HOUSE / ENQUIRE links — same type treatment
+- [x] **NAV-04**: Center: small lozenge SVG divider in champagne
+- [x] **NAV-05**: On scroll past hero: backdrop-filter blur(12px) + slight darkening
+- [x] **NAV-06**: Smooth scroll to sections on nav link click
 
 ### Hero
 
@@ -146,19 +146,19 @@ Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
-| FOUND-06 | Phase 1 | Pending |
-| FOUND-07 | Phase 1 | Pending |
-| NAV-01 | Phase 1 | Pending |
-| NAV-02 | Phase 1 | Pending |
-| NAV-03 | Phase 1 | Pending |
-| NAV-04 | Phase 1 | Pending |
-| NAV-05 | Phase 1 | Pending |
-| NAV-06 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
+| FOUND-06 | Phase 1 | Complete |
+| FOUND-07 | Phase 1 | Complete |
+| NAV-01 | Phase 1 | Complete |
+| NAV-02 | Phase 1 | Complete |
+| NAV-03 | Phase 1 | Complete |
+| NAV-04 | Phase 1 | Complete |
+| NAV-05 | Phase 1 | Complete |
+| NAV-06 | Phase 1 | Complete |
 | HERO-01 | Phase 2 | Pending |
 | HERO-02 | Phase 2 | Pending |
 | HERO-03 | Phase 2 | Pending |

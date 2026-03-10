@@ -32,7 +32,7 @@ House Harlequin is built layout-first, animate-second. The page starts as a resp
 **Plans**: TBD
 
 Plans:
-- [ ] 01-01: TBD
+- [x] 01-01: Foundation and Navigation (scaffold, tokens, lozenge, sections, nav)
 - [ ] 01-02: TBD
 
 ### Phase 2: Hero and Brand Entrance
@@ -121,7 +121,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Navigation | 0/2 | Not started | - |
+| 1. Foundation and Navigation | 1/2 | In progress | - |
 | 2. Hero and Brand Entrance | 0/1 | Not started | - |
 | 3. Narrative Sections | 0/3 | Not started | - |
 | 4. World, Enquire, and Footer | 0/2 | Not started | - |
