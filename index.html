@@ -220,6 +220,7 @@
     }
 
     .nav__inner {
+      position: relative;
       max-width: var(--content-max-width);
       margin: 0 auto;
       display: flex;
@@ -242,7 +243,9 @@
     .nav__divider {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
     }
 
     .nav__links {
