@@ -966,6 +966,74 @@
         width: 100% !important;
         transition: none !important;
       }
+
+      /* Disable cursor trail entirely */
+      .cursor-dot,
+      .cursor-ghost {
+        display: none !important;
+      }
+
+      /* Disable collection card border trace */
+      .collection__card::after {
+        transition: none !important;
+        transform: scale(1) !important;
+        opacity: 0 !important;
+      }
+
+      /* Disable hero scroll indicator pulse */
+      .hero__scroll-indicator {
+        animation: none !important;
+        opacity: 1 !important;
+      }
+
+      .hero__scroll-indicator .lozenge {
+        animation: none !important;
+        opacity: 0.6 !important;
+      }
+
+      /* Disable hero entrance stagger transforms */
+      .hero-entrance {
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+      }
+
+      /* Disable nav hover letter-spacing animation */
+      .nav__link {
+        transition: none !important;
+      }
+
+      /* Disable world card hover scale */
+      .world__card {
+        transition: none !important;
+      }
+
+      .world__card:hover {
+        transform: none !important;
+      }
+
+      .world__card-visual {
+        transition: none !important;
+      }
+
+      .world__card:hover .world__card-visual {
+        filter: none !important;
+      }
+    }
+
+    /* === Keyboard Focus Indicators === */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    [role="button"]:focus-visible {
+      outline: 2px solid var(--champagne);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .enquire__input:focus-visible {
+      outline: 2px solid var(--champagne);
+      outline-offset: 4px;
     }
   }
   </style>
@@ -1144,7 +1212,7 @@
           <p class="utility-label">The World</p>
           <p class="display-md">"Four rooms. One house. No welcome mat."</p>
         </header>
-        <div class="world__strip">
+        <div class="world__strip" tabindex="0" role="region" aria-label="World panels">
           <article class="world__card reveal">
             <div class="world__card-visual world__card-visual--salon"></div>
             <div class="world__card-content">
@@ -1367,7 +1435,7 @@
     }
 
     // === Custom cursor ===
-    if (!isTouchDevice) {
+    if (!isTouchDevice && !prefersReducedMotion) {
       const dot = document.getElementById('cursor-dot');
       const ghost = document.getElementById('cursor-ghost');
 
@@ -1394,26 +1462,18 @@
         var DOT_SPEED = 0.35;   // dot follows closely
         var GHOST_SPEED = 0.12; // ghost trails behind
 
-        if (!prefersReducedMotion) {
-          var animate = function() {
-            dotX = lerp(dotX, mouseX, DOT_SPEED);
-            dotY = lerp(dotY, mouseY, DOT_SPEED);
-            ghostX = lerp(ghostX, mouseX, GHOST_SPEED);
-            ghostY = lerp(ghostY, mouseY, GHOST_SPEED);
+        var animate = function() {
+          dotX = lerp(dotX, mouseX, DOT_SPEED);
+          dotY = lerp(dotY, mouseY, DOT_SPEED);
+          ghostX = lerp(ghostX, mouseX, GHOST_SPEED);
+          ghostY = lerp(ghostY, mouseY, GHOST_SPEED);
 
-            dot.style.transform = 'translate(' + (dotX - 3) + 'px, ' + (dotY - 3) + 'px)';
-            ghost.style.transform = 'translate(' + (ghostX - 6) + 'px, ' + (ghostY - 12) + 'px)';
+          dot.style.transform = 'translate(' + (dotX - 3) + 'px, ' + (dotY - 3) + 'px)';
+          ghost.style.transform = 'translate(' + (ghostX - 6) + 'px, ' + (ghostY - 12) + 'px)';
 
-            requestAnimationFrame(animate);
-          };
           requestAnimationFrame(animate);
-        } else {
-          // Reduced motion: snap to position (no lerp lag)
-          document.addEventListener('mousemove', function(e) {
-            dot.style.transform = 'translate(' + (e.clientX - 3) + 'px, ' + (e.clientY - 3) + 'px)';
-            ghost.style.transform = 'translate(' + (e.clientX - 6) + 'px, ' + (e.clientY - 12) + 'px)';
-          });
-        }
+        };
+        requestAnimationFrame(animate);
 
         // Hover color shift on links and buttons
         var interactiveEls = document.querySelectorAll('a, button, [role="button"]');
