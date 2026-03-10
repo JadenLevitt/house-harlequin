@@ -405,6 +405,7 @@
       background: var(--ivory);
       color: var(--black);
       position: relative;
+      padding-top: clamp(4rem, 8vh, 7rem);
     }
 
     .manifesto::before {
@@ -414,7 +415,7 @@
       left: 0;
       right: 0;
       height: clamp(6rem, 12vh, 10rem);
-      background: var(--black);
+      background: linear-gradient(180deg, var(--black) 0%, var(--black) 60%, transparent 100%);
       z-index: 0;
     }
 
@@ -425,7 +426,7 @@
 
     .manifesto__quote .display-lg {
       font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--black);
+      color: var(--champagne);
     }
 
     .manifesto .utility-body {
@@ -436,6 +437,7 @@
     .manifesto .lozenge-divider {
       position: relative;
       z-index: 1;
+      margin-top: clamp(2rem, 4vw, 3rem);
     }
 
     .manifesto .lozenge-divider .lozenge {
