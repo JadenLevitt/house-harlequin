@@ -31,6 +31,7 @@
   <!-- Additional SEO -->
   <meta name="theme-color" content="#0a0a0a">
   <meta name="robots" content="index, follow">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- Font preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -841,6 +842,7 @@
       z-index: var(--z-cursor);
       opacity: 0;
       transition: opacity var(--duration-fast) var(--ease-luxury);
+      will-change: transform;
     }
 
     .cursor-dot {
