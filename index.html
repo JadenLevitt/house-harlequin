@@ -502,13 +502,23 @@
     .collection__card {
       background: var(--black);
       overflow: hidden;
-      outline: 1px solid transparent;
-      outline-offset: -1px;
-      transition: outline-color 400ms var(--ease-luxury);
+      position: relative;
     }
 
-    .collection__card:hover {
-      outline-color: var(--champagne);
+    .collection__card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--champagne);
+      pointer-events: none;
+      transform: scale(0.95);
+      opacity: 0;
+      transition: transform 400ms var(--ease-luxury), opacity 400ms var(--ease-luxury);
+    }
+
+    .collection__card:hover::after {
+      transform: scale(1);
+      opacity: 1;
     }
 
     .collection__visual {
