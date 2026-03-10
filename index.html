@@ -804,6 +804,60 @@
         text-align: center;
       }
     }
+
+    /* Custom cursor */
+    .cursor-dot,
+    .cursor-ghost {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: var(--z-cursor);
+      opacity: 0;
+      transition: opacity var(--duration-fast) var(--ease-luxury);
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--champagne);
+      transform: translate(-50%, -50%);
+      transition: opacity var(--duration-fast) var(--ease-luxury),
+                  background var(--duration-fast) var(--ease-luxury);
+    }
+
+    .cursor-ghost {
+      color: var(--champagne);
+      transform: translate(-50%, -50%);
+      transition: opacity var(--duration-fast) var(--ease-luxury),
+                  color var(--duration-fast) var(--ease-luxury);
+    }
+
+    /* Visible state (added by JS when mouse detected) */
+    .cursor-dot.is-active,
+    .cursor-ghost.is-active {
+      opacity: 1;
+    }
+
+    .cursor-ghost.is-active {
+      opacity: 0.4;
+    }
+
+    /* Hover state: color shift from champagne to white */
+    .cursor-dot.is-hovering {
+      background: #fff;
+    }
+
+    .cursor-ghost.is-hovering {
+      color: #fff;
+    }
+
+    /* Hide default cursor on desktop when custom cursor is active */
+    .has-custom-cursor,
+    .has-custom-cursor * {
+      cursor: none !important;
+    }
   }
 
   /* === Animations === */
@@ -917,6 +971,12 @@
   </style>
 </head>
 <body>
+
+  <!-- Custom Cursor (desktop only, activated by JS) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ghost" id="cursor-ghost" aria-hidden="true">
+    <svg viewBox="0 0 12 24" width="12" height="24"><use href="#lozenge"/></svg>
+  </div>
 
   <!-- SVG Definitions (reusable symbols) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -1198,6 +1258,9 @@
         }
       });
     });
+
+    // === Touch device detection ===
+    const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     // === Hero parallax ===
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
