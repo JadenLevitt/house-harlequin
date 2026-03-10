@@ -237,6 +237,346 @@
     .lozenge-divider .lozenge {
       opacity: 0.6;
     }
+
+    /* Section header pattern */
+    .section-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .section-header .utility-label {
+      margin-bottom: 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+      text-align: center;
+    }
+
+    .hero__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero__label {
+      margin-top: 1rem;
+    }
+
+    .hero__rule {
+      width: 60px;
+      border: none;
+      border-top: 1px solid var(--champagne);
+      opacity: 0.4;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .hero__cta::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 1px;
+      background: var(--champagne);
+      transition: width var(--duration-fast) var(--ease-luxury);
+    }
+
+    .hero__cta:hover::after {
+      width: 100%;
+    }
+
+    /* Manifesto */
+    .manifesto {
+      background: var(--ivory);
+      color: var(--black);
+    }
+
+    .manifesto .display-lg {
+      color: var(--black);
+    }
+
+    .manifesto .utility-body {
+      color: var(--black);
+      opacity: 0.8;
+    }
+
+    .manifesto .lozenge-divider .lozenge {
+      color: var(--champagne);
+    }
+
+    /* House Code */
+    .house-code {
+      background: var(--black);
+    }
+
+    .house-code__column {
+      text-align: center;
+    }
+
+    .house-code__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 80px;
+      margin-bottom: 1.5rem;
+    }
+
+    .house-code__column .utility-label {
+      margin-bottom: 1rem;
+    }
+
+    /* Collection */
+    .collection {
+      background: var(--ivory);
+      color: var(--black);
+    }
+
+    .collection .section-header .utility-label {
+      color: var(--black);
+      opacity: 0.6;
+    }
+
+    .collection .section-header .display-md {
+      color: var(--black);
+    }
+
+    .collection__card {
+      background: var(--black);
+      overflow: hidden;
+      outline: 1px solid transparent;
+      outline-offset: -1px;
+      transition: outline-color 400ms var(--ease-luxury);
+    }
+
+    .collection__card:hover {
+      outline-color: var(--champagne);
+    }
+
+    .collection__visual {
+      aspect-ratio: 3 / 4;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CSS-generated geometric placeholders */
+    .collection__visual--vesper {
+      background: linear-gradient(180deg, var(--black) 0%, var(--plum) 50%, var(--black) 100%);
+    }
+
+    .collection__visual--cipher {
+      background: linear-gradient(135deg, var(--black) 0%, var(--oxblood) 50%, var(--black) 100%);
+    }
+
+    .collection__visual--veil {
+      background: linear-gradient(180deg, var(--plum) 0%, var(--black) 100%);
+    }
+
+    .collection__info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .collection__name {
+      color: var(--ivory);
+    }
+
+    .collection__enquire {
+      margin-top: 0.5rem;
+    }
+
+    .collection__footnote {
+      color: var(--black);
+      opacity: 0.7;
+    }
+
+    /* World */
+    .world {
+      background: var(--black);
+    }
+
+    .world__panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--section-gap);
+      padding: clamp(2rem, 4vw, 4rem) 0;
+      border-bottom: 1px solid rgba(200, 169, 110, 0.1);
+    }
+
+    .world__panel:last-child {
+      border-bottom: none;
+    }
+
+    .world__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .world__visual {
+      aspect-ratio: 16 / 9;
+      border-radius: 0;
+    }
+
+    .world__visual--salon {
+      background: linear-gradient(135deg, var(--plum), var(--black));
+    }
+
+    .world__visual--archive {
+      background: repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 20px,
+        rgba(176, 170, 162, 0.05) 20px,
+        rgba(176, 170, 162, 0.05) 21px
+      );
+    }
+
+    .world__visual--object {
+      background: repeating-linear-gradient(
+        90deg,
+        var(--champagne) 0px,
+        var(--champagne) 2px,
+        var(--black) 2px,
+        var(--black) 20px
+      );
+      opacity: 0.3;
+    }
+
+    .world__visual--mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .world__panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Enquire */
+    .enquire {
+      background: linear-gradient(180deg, var(--plum), var(--black));
+      text-align: center;
+    }
+
+    .enquire__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 640px;
+    }
+
+    .enquire__form {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 1rem;
+    }
+
+    .enquire__input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      background: transparent;
+      border: 1px solid var(--champagne);
+      color: var(--ivory);
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      outline: none;
+    }
+
+    .enquire__input::placeholder {
+      color: var(--platinum);
+      opacity: 0.6;
+    }
+
+    .enquire__submit {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--champagne);
+      border-left: none;
+      color: var(--champagne);
+      cursor: pointer;
+      transition: background var(--duration-fast) var(--ease-luxury),
+                  color var(--duration-fast) var(--ease-luxury);
+    }
+
+    .enquire__submit:hover {
+      background: var(--champagne);
+      color: var(--black);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--black);
+      padding-top: 0;
+      padding-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .footer__rule {
+      border: none;
+      border-top: 1px solid rgba(201, 169, 110, 0.2);
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer__nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__nav a {
+      color: var(--champagne);
+      transition: opacity var(--duration-fast);
+    }
+
+    .footer__nav a:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .footer__inner {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
   }
 
   /* === Animations === */
@@ -285,7 +625,187 @@
     </defs>
   </svg>
 
-  <!-- Navigation will be added in Task 5 -->
+  <!-- Navigation (Task 5) -->
+
+  <!-- Hero -->
+  <header id="hero" class="section hero">
+    <div class="section-inner hero__inner">
+      <div class="lozenge lozenge--lg">
+        <svg><use href="#lozenge"/></svg>
+      </div>
+      <p class="utility-label hero__label">House Harlequin</p>
+      <h1 class="display-xl hero__tagline">The mask reveals.<br>The jewel remains.</h1>
+      <hr class="hero__rule">
+      <a href="#collection" class="utility-nav hero__cta">Enter the Collection</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Manifesto -->
+    <section id="manifesto" class="section manifesto">
+      <div class="section-inner grid-2">
+        <div class="manifesto__quote">
+          <p class="display-lg">"There is power in wearing a mask. Not to hide, but to choose what is seen."</p>
+        </div>
+        <div class="manifesto__body">
+          <p class="utility-body">House Harlequin was founded on a single conviction: jewellery is not decoration. It is a statement made without speaking. A cipher only the wearer can read. We design for the woman who enters a room and changes its gravity. Not by volume. By precision.</p>
+        </div>
+      </div>
+      <div class="lozenge-divider">
+        <div class="lozenge lozenge--md">
+          <svg><use href="#lozenge"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- House Code -->
+    <section id="house-code" class="section house-code">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="utility-label">The House Code</p>
+          <p class="display-md">"A cipher in gold, a grammar in geometry."</p>
+        </header>
+        <div class="grid-3 house-code__grid">
+          <div class="house-code__column">
+            <div class="house-code__visual">
+              <svg class="lozenge lozenge--xl"><use href="#lozenge"/></svg>
+            </div>
+            <p class="utility-label">Geometry</p>
+            <p class="utility-body">The lozenge is our only shape. Repeated, rotated, scaled -- never abandoned. A single form, endlessly reinterpreted.</p>
+          </div>
+          <div class="house-code__column">
+            <div class="house-code__visual">
+              <svg class="lozenge lozenge--xl" style="transform: scaleX(-1)"><use href="#lozenge"/></svg>
+              <svg class="lozenge lozenge--xl"><use href="#lozenge"/></svg>
+            </div>
+            <p class="utility-label">Duality</p>
+            <p class="utility-body">Every piece holds a tension. Visible and hidden. Sharp and soft. Public face and private meaning. The mask and what it reveals.</p>
+          </div>
+          <div class="house-code__column">
+            <div class="house-code__visual">
+              <svg class="lozenge lozenge--xl" style="transform: rotate(90deg)"><use href="#lozenge"/></svg>
+            </div>
+            <p class="utility-label">Time</p>
+            <p class="utility-body">We do not follow seasons. A piece enters the collection when it is ready. It leaves when the last one is claimed. There are no sales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection -->
+    <section id="collection" class="section collection">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="utility-label">The Collection</p>
+          <p class="display-md">"Worn, not displayed."</p>
+        </header>
+        <div class="grid-3 collection__grid">
+          <article class="collection__card">
+            <div class="collection__visual collection__visual--vesper"></div>
+            <div class="collection__info">
+              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
+              <h3 class="display-md collection__name">Vesper</h3>
+              <p class="utility-small">Pendant / 18k Gold / Black Enamel</p>
+              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
+            </div>
+          </article>
+          <article class="collection__card">
+            <div class="collection__visual collection__visual--cipher"></div>
+            <div class="collection__info">
+              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
+              <h3 class="display-md collection__name">Cipher</h3>
+              <p class="utility-small">Stacking Rings / Platinum / Diamond</p>
+              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
+            </div>
+          </article>
+          <article class="collection__card">
+            <div class="collection__visual collection__visual--veil"></div>
+            <div class="collection__info">
+              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
+              <h3 class="display-md collection__name">Veil</h3>
+              <p class="utility-small">Drop Earrings / White Gold / Pearl</p>
+              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
+            </div>
+          </article>
+        </div>
+        <p class="display-md collection__footnote" style="text-align: center; margin-top: 3rem;">"Each piece is numbered. When the last is claimed, the edition closes."</p>
+      </div>
+    </section>
+
+    <!-- World -->
+    <section id="world" class="section world">
+      <div class="section-inner">
+        <div class="world__panel">
+          <div class="world__text">
+            <p class="utility-label">The Salon</p>
+            <p class="display-md">Private Client</p>
+            <p class="utility-body">By appointment only. A conversation, not a transaction.</p>
+          </div>
+          <div class="world__visual world__visual--salon"></div>
+        </div>
+        <div class="world__panel">
+          <div class="world__text">
+            <p class="utility-label">The Archive</p>
+            <p class="display-md">Heritage</p>
+            <p class="utility-body">Every piece documented. Every edition recorded. The house remembers.</p>
+          </div>
+          <div class="world__visual world__visual--archive"></div>
+        </div>
+        <div class="world__panel">
+          <div class="world__text">
+            <p class="utility-label">The Object</p>
+            <p class="display-md">Materiality</p>
+            <p class="utility-body">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
+          </div>
+          <div class="world__visual world__visual--object"></div>
+        </div>
+        <div class="world__panel">
+          <div class="world__text">
+            <p class="utility-label">The Mark</p>
+            <p class="display-md">The Seal</p>
+            <p class="utility-body">The lozenge is struck into every piece. Not a logo. A signature.</p>
+          </div>
+          <div class="world__visual world__visual--mark"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enquire -->
+    <section id="enquire" class="section enquire">
+      <div class="section-inner enquire__inner">
+        <div class="lozenge-divider">
+          <div class="lozenge lozenge--md"><svg><use href="#lozenge"/></svg></div>
+        </div>
+        <p class="utility-label">Private Enquiry</p>
+        <p class="display-lg enquire__headline">"We are not a shop. We are a house.<br>The door is open."</p>
+        <p class="utility-body enquire__body">Leave your address. If a piece speaks, we will write.</p>
+        <form class="enquire__form" onsubmit="return false;">
+          <input type="email" class="enquire__input" placeholder="your email address" aria-label="Email address">
+          <button type="submit" class="enquire__submit utility-nav">Enter</button>
+        </form>
+        <p class="utility-small enquire__note">No newsletters. No noise. Only the house.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="section footer">
+    <hr class="footer__rule">
+    <div class="section-inner footer__inner">
+      <div class="footer__brand">
+        <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
+        <span class="utility-tiny">House Harlequin</span>
+      </div>
+      <div class="footer__copyright">
+        <span class="utility-tiny">MMXXV</span>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#collection" class="utility-tiny">Collection</a>
+        <a href="#house-code" class="utility-tiny">The House</a>
+        <a href="#enquire" class="utility-tiny">Enquire</a>
+      </nav>
+    </div>
+  </footer>
 
   <script>
   // Scripts will be added in subsequent tasks
