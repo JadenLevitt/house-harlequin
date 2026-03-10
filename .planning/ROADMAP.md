@@ -60,12 +60,12 @@ Plans:
   3. Collection section displays three portrait-format cards (Vesper, Cipher, Veil) with CSS-generated geometric placeholders, piece names, materials, and ENQUIRE links
   4. Hovering a collection card traces a champagne border around its edge
   5. All sections respect responsive layout -- columns collapse to single-column on mobile
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — Manifesto section: overlapping pull quote, two-column layout, lozenge divider
+- [ ] 03-02-PLAN.md — House Code section: animated SVG line drawings with IntersectionObserver draw-in
+- [ ] 03-03-PLAN.md — Collection section: harlequin checker patterns and corner-growing hover border
 
 ### Phase 4: World, Enquire, and Footer
 **Goal**: The page is structurally complete -- every section exists and the visitor can reach the enquiry threshold
@@ -108,11 +108,11 @@ Plans:
   3. Every interactive element is reachable and operable via keyboard alone
   4. Lighthouse performance score is 95+ and total page weight is under 200KB (excluding fonts)
   5. Page has complete Open Graph, Twitter Card, and structured data meta tags
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
+- [ ] 06-01-PLAN.md — Accessibility: contrast audit, reduced motion hardening, champagne focus indicators
+- [ ] 06-02-PLAN.md — Performance and SEO: Open Graph, Twitter Card, JSON-LD, Lighthouse 95+
 
 ## Progress
 
