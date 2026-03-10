@@ -200,7 +200,43 @@
 
   /* === Components === */
   @layer components {
-    /* Components will be added per task */
+    /* Lozenge motif */
+    .lozenge {
+      display: inline-block;
+      color: var(--champagne);
+      vertical-align: middle;
+    }
+
+    .lozenge--sm {
+      width: 8px;
+      height: 16px;
+    }
+
+    .lozenge--md {
+      width: 12px;
+      height: 24px;
+    }
+
+    .lozenge--lg {
+      width: 20px;
+      height: 40px;
+    }
+
+    .lozenge--xl {
+      width: 28px;
+      height: 56px;
+    }
+
+    .lozenge-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+
+    .lozenge-divider .lozenge {
+      opacity: 0.6;
+    }
   }
 
   /* === Animations === */
@@ -235,7 +271,21 @@
 </head>
 <body>
 
-  <!-- Navigation, sections, and scripts will be added in subsequent tasks -->
+  <!-- SVG Definitions (reusable symbols) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <defs>
+      <!-- Lozenge: elongated diamond motif -->
+      <symbol id="lozenge" viewBox="0 0 12 24">
+        <path d="M6 0 L12 12 L6 24 L0 12 Z" fill="currentColor"/>
+      </symbol>
+      <!-- Lozenge outline variant -->
+      <symbol id="lozenge-outline" viewBox="0 0 12 24">
+        <path d="M6 1.5 L11 12 L6 22.5 L1 12 Z" fill="none" stroke="currentColor" stroke-width="0.75"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Navigation will be added in Task 5 -->
 
   <script>
   // Scripts will be added in subsequent tasks
