@@ -462,6 +462,24 @@
       margin-bottom: 1.5rem;
     }
 
+    .house-code__svg {
+      color: var(--champagne);
+      overflow: visible;
+    }
+
+    .house-code__svg .draw-path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1;
+      stroke-dasharray: var(--path-length);
+      stroke-dashoffset: var(--path-length);
+      transition: stroke-dashoffset 1.5s var(--ease-luxury);
+    }
+
+    .house-code__grid.is-visible .draw-path {
+      stroke-dashoffset: 0;
+    }
+
     .house-code__column .utility-label {
       margin-bottom: 1rem;
     }
@@ -850,22 +868,31 @@
         <div class="grid-3 house-code__grid">
           <div class="house-code__column">
             <div class="house-code__visual">
-              <svg class="lozenge lozenge--xl"><use href="#lozenge"/></svg>
+              <svg class="house-code__svg" width="60" height="120" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg">
+                <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
+                <path class="draw-path" d="M30 20 L46 60 L30 100 L14 60 Z" style="--path-length: 170;" />
+              </svg>
             </div>
             <p class="utility-label">Geometry</p>
             <p class="utility-body">The lozenge is our only shape. Repeated, rotated, scaled -- never abandoned. A single form, endlessly reinterpreted.</p>
           </div>
           <div class="house-code__column">
             <div class="house-code__visual">
-              <svg class="lozenge lozenge--xl" style="transform: scaleX(-1)"><use href="#lozenge"/></svg>
-              <svg class="lozenge lozenge--xl"><use href="#lozenge"/></svg>
+              <svg class="house-code__svg" width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
+                <path class="draw-path" d="M70 4 L96 60 L70 116 L44 60 Z" style="--path-length: 250;" />
+                <path class="draw-path" d="M50 10 L50 110" style="--path-length: 110;" />
+              </svg>
             </div>
             <p class="utility-label">Duality</p>
             <p class="utility-body">Every piece holds a tension. Visible and hidden. Sharp and soft. Public face and private meaning. The mask and what it reveals.</p>
           </div>
           <div class="house-code__column">
             <div class="house-code__visual">
-              <svg class="lozenge lozenge--xl" style="transform: rotate(90deg)"><use href="#lozenge"/></svg>
+              <svg class="house-code__svg" width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                <path class="draw-path" d="M4 30 L60 4 L116 30 L60 56 Z" style="--path-length: 250;" />
+                <path class="draw-path" d="M10 30 L110 30" style="--path-length: 110;" />
+              </svg>
             </div>
             <p class="utility-label">Time</p>
             <p class="utility-body">We do not follow seasons. A piece enters the collection when it is ready. It leaves when the last one is claimed. There are no sales.</p>
