@@ -244,11 +244,14 @@
 
     .nav__link {
       position: relative;
-      transition: opacity var(--duration-fast);
+      letter-spacing: 0.25em;
+      transition: letter-spacing var(--duration-fast) var(--ease-luxury),
+                  opacity var(--duration-fast) var(--ease-luxury);
     }
 
     .nav__link:hover {
-      opacity: 0.7;
+      letter-spacing: 0.35em;
+      opacity: 0.85;
     }
 
     /* Lozenge motif */
