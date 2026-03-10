@@ -404,15 +404,38 @@
     .manifesto {
       background: var(--ivory);
       color: var(--black);
+      position: relative;
     }
 
-    .manifesto .display-lg {
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: clamp(6rem, 12vh, 10rem);
+      background: var(--black);
+      z-index: 0;
+    }
+
+    .manifesto .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .manifesto__quote .display-lg {
+      font-size: clamp(2.5rem, 5vw, 4rem);
       color: var(--black);
     }
 
     .manifesto .utility-body {
       color: var(--black);
       opacity: 0.8;
+    }
+
+    .manifesto .lozenge-divider {
+      position: relative;
+      z-index: 1;
     }
 
     .manifesto .lozenge-divider .lozenge {
