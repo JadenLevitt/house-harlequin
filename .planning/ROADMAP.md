@@ -10,7 +10,7 @@ House Harlequin is built layout-first, animate-second. The page starts as a resp
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Foundation and Navigation** - Typography tokens, responsive skeleton, fixed nav bar, lozenge motif system
+- [x] **Phase 1: Foundation and Navigation** - Typography tokens, responsive skeleton, fixed nav bar, lozenge motif system
 - [ ] **Phase 2: Hero and Brand Entrance** - Full-viewport cinematic hero with gradient, parallax, and staggered text reveal
 - [ ] **Phase 3: Narrative Sections** - Manifesto, House Code, and Collection content sections on alternating backgrounds
 - [ ] **Phase 4: World, Enquire, and Footer** - World panels, enquiry form, and footer to complete the page structure
@@ -33,7 +33,7 @@ House Harlequin is built layout-first, animate-second. The page starts as a resp
 
 Plans:
 - [x] 01-01: Foundation and Navigation (scaffold, tokens, lozenge, sections, nav)
-- [ ] 01-02: TBD
+- [x] 01-02: Navigation Polish and Verification (letter-spacing hover, wordmark, lozenge fix)
 
 ### Phase 2: Hero and Brand Entrance
 **Goal**: A stranger landing on the page feels they have found something -- the hero delivers the "heavy black envelope" first impression
@@ -121,7 +121,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Navigation | 1/2 | In progress | - |
+| 1. Foundation and Navigation | 2/2 | Complete | 2026-03-09 |
 | 2. Hero and Brand Entrance | 0/1 | Not started | - |
 | 3. Narrative Sections | 0/3 | Not started | - |
 | 4. World, Enquire, and Footer | 0/2 | Not started | - |
