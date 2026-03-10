@@ -12,7 +12,225 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-  /* Styles will be built out in subsequent tasks */
+  /* === Layer Order === */
+  @layer reset, tokens, typography, layout, components, animations, utilities;
+
+  /* === Reset === */
+  @layer reset {
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+  }
+
+  /* === Design Tokens === */
+  @layer tokens {
+    :root {
+      /* Palette */
+      --black: #0a0a0a;
+      --ivory: #f5f0eb;
+      --champagne: #c9a96e;
+      --platinum: #b0aaa2;
+      --plum: #2a1a2e;
+      --oxblood: #4a1a2a;
+      --bone: #e8e4df;
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-utility: 'Jost', 'Helvetica Neue', sans-serif;
+
+      /* Spacing */
+      --section-padding: clamp(8rem, 16vh, 12rem);
+      --section-gap: clamp(2rem, 4vw, 4rem);
+      --content-max-width: 1200px;
+      --content-padding-x: clamp(1.5rem, 5vw, 4rem);
+
+      /* Timing */
+      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-reveal: 0.8s;
+      --duration-fast: 0.3s;
+      --duration-slow: 1.2s;
+
+      /* Z-indices */
+      --z-nav: 100;
+      --z-cursor: 200;
+    }
+  }
+
+  /* === Typography === */
+  @layer typography {
+    /* Display: Cormorant Garamond italic -- never bold */
+    .display-xl {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 6vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ivory);
+    }
+
+    .display-lg {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ivory);
+    }
+
+    .display-md {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+      line-height: 1.1;
+      color: var(--ivory);
+    }
+
+    /* Utility: Jost 300, all caps */
+    .utility-label {
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--platinum);
+    }
+
+    .utility-nav {
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    .utility-body {
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--bone);
+    }
+
+    .utility-small {
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--platinum);
+    }
+
+    .utility-tiny {
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--platinum);
+    }
+  }
+
+  /* === Layout === */
+  @layer layout {
+    body {
+      background-color: var(--black);
+      color: var(--ivory);
+      font-family: var(--font-utility);
+    }
+
+    .section {
+      padding: var(--section-padding) var(--content-padding-x);
+    }
+
+    .section-inner {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--section-gap);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--section-gap);
+    }
+
+    @media (max-width: 768px) {
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  /* === Components === */
+  @layer components {
+    /* Components will be added per task */
+  }
+
+  /* === Animations === */
+  @layer animations {
+    /* Animations will be added in Phase 5 */
+  }
+
+  /* === Utilities === */
+  @layer utilities {
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  }
   </style>
 </head>
 <body>
