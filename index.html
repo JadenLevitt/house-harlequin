@@ -860,6 +860,16 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* HR width reveal */
+    .hr-reveal {
+      width: 0%;
+      transition: width 600ms var(--ease-luxury);
+    }
+
+    .hr-reveal.is-revealed {
+      width: 100%;
+    }
   }
 
   /* === Utilities === */
@@ -896,6 +906,11 @@
 
       .reveal.is-revealed {
         transform: none !important;
+      }
+
+      .hr-reveal {
+        width: 100% !important;
+        transition: none !important;
       }
     }
   }
@@ -1130,7 +1145,7 @@
 
   <!-- Footer -->
   <footer class="section footer">
-    <hr class="footer__rule">
+    <hr class="footer__rule hr-reveal">
     <div class="section-inner footer__inner">
       <div class="footer__brand">
         <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
@@ -1259,6 +1274,33 @@
       });
 
       revealEls.forEach(el => revealObserver.observe(el));
+    }
+
+    // === HR reveal ===
+    const hrEls = document.querySelectorAll('.hr-reveal');
+
+    if (hrEls.length > 0 && !prefersReducedMotion) {
+      const hrObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            hrObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      hrEls.forEach(el => {
+        // If already visible in viewport on load, animate immediately
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-revealed');
+        } else {
+          hrObserver.observe(el);
+        }
+      });
+    } else if (hrEls.length > 0 && prefersReducedMotion) {
+      // Reduced motion: show immediately
+      hrEls.forEach(el => el.classList.add('is-revealed'));
     }
   })();
   </script>
