@@ -200,6 +200,57 @@
 
   /* === Components === */
   @layer components {
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      padding: 1.25rem var(--content-padding-x);
+      background: rgba(10, 10, 10, 0.4);
+      transition: background var(--duration-fast) var(--ease-luxury),
+                  backdrop-filter var(--duration-fast) var(--ease-luxury);
+    }
+
+    .nav.is-scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav__inner {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__brand {
+      white-space: nowrap;
+    }
+
+    .nav__divider {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .nav__link {
+      position: relative;
+      transition: opacity var(--duration-fast);
+    }
+
+    .nav__link:hover {
+      opacity: 0.7;
+    }
+
     /* Lozenge motif */
     .lozenge {
       display: inline-block;
@@ -625,7 +676,20 @@
     </defs>
   </svg>
 
-  <!-- Navigation (Task 5) -->
+  <!-- Navigation -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__brand utility-nav">House Harlequin</a>
+      <div class="nav__divider lozenge lozenge--sm">
+        <svg><use href="#lozenge"/></svg>
+      </div>
+      <div class="nav__links">
+        <a href="#collection" class="nav__link utility-nav">Collection</a>
+        <a href="#house-code" class="nav__link utility-nav">The House</a>
+        <a href="#enquire" class="nav__link utility-nav">Enquire</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Hero -->
   <header id="hero" class="section hero">
@@ -808,7 +872,42 @@
   </footer>
 
   <script>
-  // Scripts will be added in subsequent tasks
+  (function() {
+    'use strict';
+
+    // === Scroll-aware navigation ===
+    const nav = document.getElementById('nav');
+    const hero = document.getElementById('hero');
+
+    if (nav && hero) {
+      const heroHeight = () => hero.offsetHeight;
+
+      const onScroll = () => {
+        if (window.scrollY > heroHeight() * 0.5) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // initial check
+    }
+
+    // === Smooth scroll for anchor links ===
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
   </script>
 </body>
 </html>
