@@ -601,12 +601,22 @@
       flex: 0 0 clamp(280px, 70vw, 420px);
       scroll-snap-align: start;
       cursor: default;
+      transition: transform 400ms var(--ease-luxury);
+    }
+
+    .world__card:hover {
+      transform: scale(1.02);
     }
 
     .world__card-visual {
       aspect-ratio: 3 / 4;
       position: relative;
       overflow: hidden;
+      transition: filter 400ms var(--ease-luxury);
+    }
+
+    .world__card:hover .world__card-visual {
+      filter: brightness(1.15);
     }
 
     .world__card-visual--salon {
