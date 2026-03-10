@@ -3,1068 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>House Harlequin — The mask reveals. The jewel remains.</title>
-  <meta name="description" content="House Harlequin designs jewellery for the woman who enters a room and changes its gravity. Not by volume. By precision.">
+  <title>House Harlequin</title>
+  <meta name="description" content="House Harlequin recognises the geometry already present in every beautiful moment and makes it wearable. By appointment. By enquiry. By invitation.">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://househarlequin.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="House Harlequin — The mask reveals. The jewel remains.">
-  <meta property="og:description" content="House Harlequin designs jewellery for the woman who enters a room and changes its gravity. Not by volume. By precision.">
+  <meta property="og:title" content="House Harlequin">
+  <meta property="og:description" content="House Harlequin recognises the geometry already present in every beautiful moment and makes it wearable. By appointment. By enquiry. By invitation.">
   <meta property="og:url" content="https://househarlequin.com/">
   <meta property="og:site_name" content="House Harlequin">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="https://househarlequin.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="House Harlequin — luxury jewellery house">
+  <meta property="og:image:alt" content="House Harlequin — the geometry of a life beautifully lived">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="House Harlequin — The mask reveals. The jewel remains.">
-  <meta name="twitter:description" content="Jewellery for the woman who enters a room and changes its gravity.">
+  <meta name="twitter:title" content="House Harlequin">
+  <meta name="twitter:description" content="The geometry of a life beautifully lived. Made wearable.">
   <meta name="twitter:image" content="https://househarlequin.com/og-image.jpg">
-  <meta name="twitter:image:alt" content="House Harlequin — luxury jewellery house">
+  <meta name="twitter:image:alt" content="House Harlequin — the geometry of a life beautifully lived">
 
   <!-- Additional SEO -->
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#090806">
   <meta name="robots" content="index, follow">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
-  <!-- Font preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-
-  <style>
-  /* === Layer Order === */
-  @layer reset, tokens, typography, layout, components, animations, utilities;
-
-  /* === Reset === */
-  @layer reset {
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    img, svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul, ol {
-      list-style: none;
-    }
-  }
-
-  /* === Design Tokens === */
-  @layer tokens {
-    :root {
-      /* Palette */
-      --black: #0a0a0a;
-      --ivory: #f5f0eb;
-      --champagne: #c9a96e;
-      --platinum: #b0aaa2;
-      --plum: #2a1a2e;
-      --oxblood: #4a1a2a;
-      --bone: #e8e4df;
-
-      /* Typography */
-      --font-display: 'Cormorant Garamond', 'Georgia', serif;
-      --font-utility: 'Jost', 'Helvetica Neue', sans-serif;
-
-      /* Spacing */
-      --section-padding: clamp(8rem, 16vh, 12rem);
-      --section-gap: clamp(2rem, 4vw, 4rem);
-      --content-max-width: 1200px;
-      --content-padding-x: clamp(1.5rem, 5vw, 4rem);
-
-      /* Timing */
-      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
-      --duration-reveal: 0.8s;
-      --duration-fast: 0.3s;
-      --duration-slow: 1.2s;
-
-      /* Z-indices */
-      --z-nav: 100;
-      --z-cursor: 200;
-    }
-  }
-
-  /* === Typography === */
-  @layer typography {
-    /* Display: Cormorant Garamond italic -- never bold */
-    .display-xl {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(2.5rem, 6vw, 6rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      color: var(--ivory);
-    }
-
-    .display-lg {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(2rem, 4vw, 4rem);
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      color: var(--ivory);
-    }
-
-    .display-md {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-      line-height: 1.1;
-      color: var(--ivory);
-    }
-
-    /* Utility: Jost 300, all caps */
-    .utility-label {
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--platinum);
-    }
-
-    .utility-nav {
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--champagne);
-    }
-
-    .utility-body {
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--bone);
-    }
-
-    .utility-small {
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--platinum);
-    }
-
-    .utility-tiny {
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--platinum);
-    }
-  }
-
-  /* === Layout === */
-  @layer layout {
-    body {
-      background-color: var(--black);
-      color: var(--ivory);
-      font-family: var(--font-utility);
-    }
-
-    .section {
-      padding: var(--section-padding) var(--content-padding-x);
-    }
-
-    .section-inner {
-      max-width: var(--content-max-width);
-      margin: 0 auto;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--section-gap);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--section-gap);
-    }
-
-    @media (max-width: 768px) {
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-  }
-
-  /* === Components === */
-  @layer components {
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: var(--z-nav);
-      padding: 1.25rem var(--content-padding-x);
-      background: rgba(10, 10, 10, 0.4);
-      transition: background var(--duration-fast) var(--ease-luxury),
-                  backdrop-filter var(--duration-fast) var(--ease-luxury);
-    }
-
-    .nav.is-scrolled {
-      background: rgba(10, 10, 10, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .nav__inner {
-      position: relative;
-      max-width: var(--content-max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav__brand {
-      white-space: nowrap;
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      font-weight: 400;
-      transition: opacity var(--duration-fast) var(--ease-luxury);
-    }
-
-    .nav__brand:hover {
-      opacity: 0.8;
-    }
-
-    .nav__divider {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.5;
-    }
-
-    .nav__links {
-      display: flex;
-      gap: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    .nav__link {
-      position: relative;
-      letter-spacing: 0.25em;
-      transition: letter-spacing var(--duration-fast) var(--ease-luxury),
-                  opacity var(--duration-fast) var(--ease-luxury);
-    }
-
-    .nav__link:hover {
-      letter-spacing: 0.35em;
-      opacity: 0.85;
-    }
-
-    /* Lozenge motif */
-    .lozenge {
-      display: inline-block;
-      color: var(--champagne);
-      vertical-align: middle;
-    }
-
-    .lozenge--sm {
-      width: 8px;
-      height: 16px;
-    }
-
-    .lozenge--md {
-      width: 12px;
-      height: 24px;
-    }
-
-    .lozenge--lg {
-      width: 20px;
-      height: 40px;
-    }
-
-    .lozenge--xl {
-      width: 28px;
-      height: 56px;
-    }
-
-    .lozenge-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-
-    .lozenge-divider .lozenge {
-      opacity: 0.6;
-    }
-
-    /* Section header pattern */
-    .section-header {
-      text-align: center;
-      margin-bottom: clamp(3rem, 6vw, 5rem);
-    }
-
-    .section-header .utility-label {
-      margin-bottom: 1rem;
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--black);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(180deg, var(--black) 0%, #0f0a12 40%, var(--plum) 100%);
-      will-change: transform;
-      pointer-events: none;
-    }
-
-    .hero__bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='24' viewBox='0 0 12 24'%3E%3Cpath d='M6 0 L12 12 L6 24 L0 12 Z' fill='%23c9a96e'/%3E%3C/svg%3E");
-      background-size: 30px 60px;
-      opacity: 0.03;
-      pointer-events: none;
-    }
-
-    .hero__inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__label {
-      margin-top: 1rem;
-    }
-
-    .hero__rule {
-      width: 60px;
-      border: none;
-      border-top: 1px solid var(--champagne);
-      opacity: 0.4;
-    }
-
-    .hero__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 2rem;
-      background: transparent;
-      border: 1px solid var(--champagne);
-      color: var(--champagne);
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      transition: border-color var(--duration-fast) var(--ease-luxury),
-                  background var(--duration-fast) var(--ease-luxury),
-                  color var(--duration-fast) var(--ease-luxury);
-    }
-
-    .hero__cta:hover {
-      background: rgba(201, 169, 110, 0.08);
-    }
-
-    .hero__scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-
-    .hero__scroll-indicator .lozenge {
-      color: var(--champagne);
-      opacity: 0.6;
-      animation: hero-pulse 2s ease-in-out infinite;
-    }
-
-    /* Manifesto */
-    .manifesto {
-      background: var(--ivory);
-      color: var(--black);
-      position: relative;
-      padding-top: clamp(4rem, 8vh, 7rem);
-    }
-
-    .manifesto::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: clamp(6rem, 12vh, 10rem);
-      background: linear-gradient(180deg, var(--black) 0%, var(--black) 60%, transparent 100%);
-      z-index: 0;
-    }
-
-    .manifesto .section-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .manifesto__quote .display-lg {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--champagne);
-    }
-
-    .manifesto .utility-body {
-      color: #3a3530;
-      opacity: 1;
-    }
-
-    .manifesto .lozenge-divider {
-      position: relative;
-      z-index: 1;
-      margin-top: clamp(2rem, 4vw, 3rem);
-    }
-
-    .manifesto .lozenge-divider .lozenge {
-      color: var(--champagne);
-    }
-
-    /* House Code */
-    .house-code {
-      background: var(--black);
-    }
-
-    .house-code__column {
-      text-align: center;
-    }
-
-    .house-code__visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 80px;
-      margin-bottom: 1.5rem;
-    }
-
-    .house-code__svg {
-      color: var(--champagne);
-      overflow: visible;
-    }
-
-    .house-code__svg .draw-path {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1;
-      stroke-dasharray: var(--path-length);
-      stroke-dashoffset: var(--path-length);
-      transition: stroke-dashoffset 1.5s var(--ease-luxury);
-    }
-
-    .house-code__grid.is-visible .draw-path {
-      stroke-dashoffset: 0;
-    }
-
-    .house-code__column .utility-label {
-      margin-bottom: 1rem;
-    }
-
-    /* Collection */
-    .collection {
-      background: var(--ivory);
-      color: var(--black);
-    }
-
-    .collection .section-header .utility-label {
-      color: var(--black);
-      opacity: 0.6;
-    }
-
-    .collection .section-header .display-md {
-      color: var(--black);
-    }
-
-    .collection__card {
-      background: var(--black);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .collection__card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 1px solid var(--champagne);
-      pointer-events: none;
-      transform: scale(0.95);
-      opacity: 0;
-      transition: transform 400ms var(--ease-luxury), opacity 400ms var(--ease-luxury);
-    }
-
-    .collection__card:hover::after {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .collection__visual {
-      aspect-ratio: 3 / 4;
-      background: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* CSS-generated harlequin lozenge checker patterns */
-    .collection__visual--vesper {
-      background-color: var(--black);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L20 10 L10 20 L0 10 Z' fill='%232a1a2e' opacity='0.6'/%3E%3C/svg%3E");
-      background-size: 20px 20px;
-    }
-
-    .collection__visual--cipher {
-      background-color: var(--black);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M18 0 L36 18 L18 36 L0 18 Z' fill='%234a1a2a' opacity='0.5'/%3E%3C/svg%3E");
-      background-size: 36px 36px;
-    }
-
-    .collection__visual--veil {
-      background-color: var(--black);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 0 L48 24 L24 48 L0 24 Z' fill='%23c9a96e' opacity='0.08'/%3E%3C/svg%3E");
-      background-size: 48px 48px;
-    }
-
-    .collection__visual-icon {
-      color: var(--champagne);
-      opacity: 0.15;
-    }
-
-    .collection__name {
-      font-size: clamp(1.25rem, 2vw, 1.5rem);
-    }
-
-    .collection__info {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .collection__name {
-      color: var(--ivory);
-    }
-
-    .collection__enquire {
-      margin-top: 0.5rem;
-    }
-
-    .collection__footnote {
-      color: var(--black);
-      opacity: 0.7;
-    }
-
-    /* World */
-    .world {
-      background: var(--black);
-    }
-
-    .world__strip {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .world__strip::-webkit-scrollbar {
-      display: none;
-    }
-
-    .world__card {
-      flex: 0 0 clamp(280px, 70vw, 420px);
-      scroll-snap-align: start;
-      cursor: default;
-      transition: transform 400ms var(--ease-luxury);
-    }
-
-    .world__card:hover {
-      transform: scale(1.02);
-    }
-
-    .world__card-visual {
-      aspect-ratio: 3 / 4;
-      position: relative;
-      overflow: hidden;
-      transition: filter 400ms var(--ease-luxury);
-    }
-
-    .world__card:hover .world__card-visual {
-      filter: brightness(1.15);
-    }
-
-    .world__card-visual--salon {
-      background:
-        radial-gradient(ellipse at 30% 70%, rgba(42, 26, 46, 0.8) 0%, transparent 60%),
-        radial-gradient(ellipse at 70% 30%, rgba(42, 26, 46, 0.4) 0%, transparent 50%),
-        linear-gradient(135deg, var(--plum), var(--black));
-    }
-
-    .world__card-visual--archive {
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(176, 170, 162, 0.06) 0%, transparent 70%),
-        repeating-linear-gradient(
-          45deg,
-          transparent 0px,
-          transparent 20px,
-          rgba(176, 170, 162, 0.07) 20px,
-          rgba(176, 170, 162, 0.07) 21px
-        ),
-        var(--black);
-    }
-
-    .world__card-visual--object {
-      background:
-        radial-gradient(ellipse at 50% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
-        repeating-linear-gradient(
-          90deg,
-          rgba(201, 169, 110, 0.25) 0px,
-          rgba(201, 169, 110, 0.25) 2px,
-          var(--black) 2px,
-          var(--black) 20px
-        );
-    }
-
-    .world__card-visual--mark {
-      background: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .world__card-visual--mark::before {
-      content: '';
-      width: 80px;
-      height: 160px;
-      background: var(--champagne);
-      opacity: 0.08;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    .world__card-content {
-      padding: 1.5rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .world__card {
-        flex: 0 0 85vw;
-      }
-    }
-
-    /* Enquire */
-    .enquire {
-      background: linear-gradient(180deg, var(--plum), var(--black));
-      text-align: center;
-    }
-
-    .enquire__inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 640px;
-    }
-
-    .enquire__form {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      width: 100%;
-      max-width: 400px;
-      margin-top: 1rem;
-    }
-
-    .enquire__input {
-      flex: 1;
-      padding: 0.75rem 0;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--champagne);
-      border-radius: 0;
-      color: var(--ivory);
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      outline: none;
-      transition: border-bottom-color var(--duration-fast) var(--ease-luxury);
-    }
-
-    .enquire__input:focus {
-      border-bottom-color: rgba(201, 169, 110, 0.8);
-    }
-
-    .enquire__input::placeholder {
-      color: var(--platinum);
-      opacity: 0.5;
-      font-style: italic;
-    }
-
-    .enquire__submit {
-      padding: 0.75rem 1rem;
-      background: none;
-      border: none;
-      color: var(--champagne);
-      cursor: pointer;
-      font-family: var(--font-utility);
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      transition: opacity var(--duration-fast) var(--ease-luxury);
-    }
-
-    .enquire__submit:hover {
-      opacity: 1;
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--black);
-      padding-top: 0;
-      padding-bottom: clamp(1.5rem, 3vw, 2rem);
-    }
-
-    .footer__rule {
-      border: none;
-      border-top: 1px solid rgba(201, 169, 110, 0.15);
-      margin-bottom: clamp(1.5rem, 3vw, 2rem);
-    }
-
-    .footer__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer__brand {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0.7;
-    }
-
-    .footer__brand .lozenge {
-      opacity: 0.6;
-    }
-
-    .footer__copyright {
-      opacity: 0.7;
-    }
-
-    .footer__nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer__nav a {
-      color: var(--champagne);
-      opacity: 0.7;
-      transition: opacity var(--duration-fast);
-    }
-
-    .footer__nav a:hover {
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      .footer__inner {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-    }
-
-    /* Custom cursor */
-    .cursor-dot,
-    .cursor-ghost {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: var(--z-cursor);
-      opacity: 0;
-      transition: opacity var(--duration-fast) var(--ease-luxury);
-      will-change: transform;
-    }
-
-    .cursor-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--champagne);
-      transform: translate(-50%, -50%);
-      transition: opacity var(--duration-fast) var(--ease-luxury),
-                  background var(--duration-fast) var(--ease-luxury);
-    }
-
-    .cursor-ghost {
-      color: var(--champagne);
-      transform: translate(-50%, -50%);
-      transition: opacity var(--duration-fast) var(--ease-luxury),
-                  color var(--duration-fast) var(--ease-luxury);
-    }
-
-    /* Visible state (added by JS when mouse detected) */
-    .cursor-dot.is-active,
-    .cursor-ghost.is-active {
-      opacity: 1;
-    }
-
-    .cursor-ghost.is-active {
-      opacity: 0.4;
-    }
-
-    /* Hover state: color shift from champagne to white */
-    .cursor-dot.is-hovering {
-      background: #fff;
-    }
-
-    .cursor-ghost.is-hovering {
-      color: #fff;
-    }
-
-    /* Hide default cursor on desktop when custom cursor is active */
-    .has-custom-cursor,
-    .has-custom-cursor * {
-      cursor: none !important;
-    }
-  }
-
-  /* === Animations === */
-  @layer animations {
-    @keyframes hero-pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        transform: scale(1.3);
-        opacity: 1;
-      }
-    }
-
-    @keyframes hero-fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Staggered entrance: each hero child fades up in sequence */
-    .hero-entrance {
-      opacity: 0;
-      animation: hero-fade-up 0.8s var(--ease-luxury) forwards;
-    }
-
-    .hero__inner > .hero-entrance:nth-child(1) { animation-delay: 0.2s; }
-    .hero__inner > .hero-entrance:nth-child(2) { animation-delay: 0.5s; }
-    .hero__inner > .hero-entrance:nth-child(3) { animation-delay: 0.8s; }
-    .hero__inner > .hero-entrance:nth-child(4) { animation-delay: 1.1s; }
-    .hero__inner > .hero-entrance:nth-child(5) { animation-delay: 1.4s; }
-
-    /* Scroll indicator fades in last */
-    .hero__scroll-indicator {
-      opacity: 0;
-      animation: hero-fade-up 0.8s var(--ease-luxury) 1.8s forwards;
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 450ms var(--ease-luxury), transform 450ms var(--ease-luxury);
-      transition-delay: calc(var(--reveal-index, 0) * 100ms);
-    }
-
-    .reveal.is-revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* HR width reveal */
-    .hr-reveal {
-      width: 0%;
-      transition: width 600ms var(--ease-luxury);
-    }
-
-    .hr-reveal.is-revealed {
-      width: 100%;
-    }
-  }
-
-  /* === Utilities === */
-  @layer utilities {
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-
-      .house-code__svg .draw-path {
-        stroke-dashoffset: 0 !important;
-      }
-
-      .reveal {
-        transform: none !important;
-        transition-property: opacity !important;
-        transition-duration: 300ms !important;
-      }
-
-      .reveal.is-revealed {
-        transform: none !important;
-      }
-
-      .hr-reveal {
-        width: 100% !important;
-        transition: none !important;
-      }
-
-      /* Disable cursor trail entirely */
-      .cursor-dot,
-      .cursor-ghost {
-        display: none !important;
-      }
-
-      /* Disable collection card border trace */
-      .collection__card::after {
-        transition: none !important;
-        transform: scale(1) !important;
-        opacity: 0 !important;
-      }
-
-      /* Disable hero scroll indicator pulse */
-      .hero__scroll-indicator {
-        animation: none !important;
-        opacity: 1 !important;
-      }
-
-      .hero__scroll-indicator .lozenge {
-        animation: none !important;
-        opacity: 0.6 !important;
-      }
-
-      /* Disable hero entrance stagger transforms */
-      .hero-entrance {
-        transform: none !important;
-        opacity: 1 !important;
-        animation: none !important;
-      }
-
-      /* Disable nav hover letter-spacing animation */
-      .nav__link {
-        transition: none !important;
-      }
-
-      /* Disable world card hover scale */
-      .world__card {
-        transition: none !important;
-      }
-
-      .world__card:hover {
-        transform: none !important;
-      }
-
-      .world__card-visual {
-        transition: none !important;
-      }
-
-      .world__card:hover .world__card-visual {
-        filter: none !important;
-      }
-    }
-
-    /* === Keyboard Focus Indicators === */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    [role="button"]:focus-visible {
-      outline: 2px solid var(--champagne);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
-
-    .enquire__input:focus-visible {
-      outline: 2px solid var(--champagne);
-      outline-offset: 4px;
-    }
-  }
-  </style>
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -1072,489 +39,570 @@
     "@type": "Organization",
     "name": "House Harlequin",
     "url": "https://househarlequin.com",
-    "description": "House Harlequin designs jewellery for the woman who enters a room and changes its gravity. Not by volume. By precision.",
-    "foundingDate": "2025",
+    "description": "House Harlequin recognises the geometry already present in every beautiful moment and makes it wearable.",
     "brand": {
       "@type": "Brand",
-      "name": "House Harlequin",
-      "slogan": "The mask reveals. The jewel remains."
-    },
-    "sameAs": []
+      "name": "House Harlequin"
+    }
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "House Harlequin",
-    "url": "https://househarlequin.com",
-    "description": "Luxury jewellery house — the mask reveals, the jewel remains."
-  }
-  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* === CSS Variables === */
+    :root {
+      --black: #090806;
+      --black-mid: #111009;
+      --ivory: #f0ebe0;
+      --ivory-dim: #d8d2c4;
+      --champagne: #c4a882;
+      --champagne-dim: rgba(196, 168, 130, 0.3);
+      --platinum: #a8afb8;
+      --plum: #2a1520;
+      --plum-mid: #1e0f18;
+      --oxblood: #3d1212;
+      --bone: #ccc6b8;
+      --text-body: rgba(240, 235, 224, 0.6);
+      --text-dim: rgba(240, 235, 224, 0.35);
+    }
+
+    /* === Global Resets === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--ivory);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      cursor: none;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--champagne); color: var(--black); }
+
+    /* === Background Grain Texture === */
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%; opacity: 0.028;
+      pointer-events: none; z-index: 1000;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat; background-size: 128px 128px;
+    }
+
+    /* === Custom Cursor === */
+    #cursor {
+      position: fixed; width: 12px; height: 12px;
+      background: transparent; border: 1px solid var(--champagne);
+      transform: rotate(45deg) translate(-50%, -50%);
+      transform-origin: top left; pointer-events: none; z-index: 9999;
+      transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+    }
+    #cursor-dot {
+      position: fixed; width: 3px; height: 3px;
+      background: var(--champagne); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    body:has(a:hover) #cursor, body:has(button:hover) #cursor {
+      width: 32px; height: 32px;
+      background: var(--champagne-dim); border-color: var(--champagne);
+    }
+
+    /* === Page Load Curtain === */
+    #page-curtain { position: fixed; inset: 0; background: var(--black); z-index: 9000; display: flex; align-items: center; justify-content: center; transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s; }
+    #page-curtain.lifted { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+    .curtain-lozenge svg { animation: curtain-pulse 1.2s ease-in-out; }
+    @keyframes curtain-pulse { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0.6; transform: scale(1.05); } }
+
+    /* === Scroll Reveal System === */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-line { width: 0; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal-line.revealed { width: 100%; }
+
+    /* === Lozenge Divider === */
+    .lozenge-divider {
+      display: flex; justify-content: center; align-items: center; padding: 3rem 0;
+    }
+    .lozenge-divider svg {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s;
+      opacity: 0.7;
+    }
+    .lozenge-divider:hover svg { transform: rotate(180deg); opacity: 1; }
+
+    /* === Nav === */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 4rem;
+      transition: background 0.6s, backdrop-filter 0.6s, padding 0.6s;
+    }
+    #nav.scrolled {
+      background: rgba(9, 8, 6, 0.82);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 1.4rem 4rem;
+    }
+    .nav-logo span {
+      font-family: 'Jost', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 0.38em; color: var(--champagne); text-decoration: none;
+    }
+    .nav-logo { text-decoration: none; }
+    .nav-links { display: flex; gap: 3rem; }
+    .nav-links a {
+      font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 0.32em; color: var(--platinum); text-decoration: none;
+      position: relative; transition: color 0.3s;
+    }
+    .nav-links a::before {
+      content: ''; position: absolute; left: -14px; top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 4px; height: 4px; border: 0.5px solid var(--champagne);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .nav-links a:hover { color: var(--champagne); }
+    .nav-links a:hover::before { opacity: 1; }
+
+    /* === Hero === */
+    #hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, var(--plum) 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 30%, rgba(42, 21, 32, 0.6) 0%, transparent 50%),
+                  var(--black);
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0; opacity: 0.025;
+      background-image: repeating-linear-gradient(45deg, var(--champagne) 0px, var(--champagne) 0.5px, transparent 0.5px, transparent 28px),
+                         repeating-linear-gradient(-45deg, var(--champagne) 0px, var(--champagne) 0.5px, transparent 0.5px, transparent 28px);
+    }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 0 2rem; }
+    .hero-label {
+      font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 0.45em; color: var(--platinum); margin: 1.5rem 0;
+    }
+    .hero-display {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+      font-size: clamp(52px, 7vw, 88px); line-height: 1.08; color: var(--ivory); letter-spacing: -0.01em;
+    }
+    .hero-display em { font-style: italic; color: var(--champagne); }
+    .hero-rule { display: flex; justify-content: center; margin: 2.5rem 0; }
+    .hero-rule-line { height: 1px; background: var(--champagne); width: 72px; }
+    .hero-cta {
+      font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 0.35em; color: var(--champagne); text-decoration: none;
+      position: relative; padding-bottom: 3px;
+    }
+    .hero-cta::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      height: 1px; width: 0; background: var(--champagne);
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-cta:hover::after { width: 100%; }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+      animation: pulse-lozenge 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-lozenge {
+      0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.9; transform: translateX(-50%) translateY(-6px); }
+    }
+
+    /* === Manifesto === */
+    #manifesto { background: var(--ivory); padding: 12rem 4rem; }
+    .manifesto-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    }
+    .manifesto-quote {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+      font-size: clamp(32px, 3.5vw, 52px); line-height: 1.2; color: var(--black); letter-spacing: -0.01em;
+    }
+    .manifesto-right p {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px;
+      line-height: 1.95; color: rgba(9, 8, 6, 0.65); margin-bottom: 1.4rem;
+    }
+
+    /* === House Code === */
+    #house-code { background: var(--black); padding: 12rem 4rem; }
+    .house-code-header { text-align: center; max-width: 680px; margin: 0 auto 2rem; }
+    .section-label {
+      font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 0.42em; color: var(--platinum); display: block; margin-bottom: 1.2rem;
+    }
+    .section-display {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: normal;
+      font-size: clamp(36px, 4vw, 58px); line-height: 1.15; color: var(--ivory); letter-spacing: -0.01em;
+    }
+    .section-display em { font-style: italic; color: var(--champagne); }
+    .house-code-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem;
+      max-width: 1000px; margin: 0 auto; padding-top: 2rem;
+    }
+    .code-column {
+      text-align: center; border: 1px solid rgba(196, 168, 130, 0.1);
+      padding: 3.5rem 2.5rem; transition: border-color 0.5s;
+    }
+    .code-column:hover { border-color: rgba(196, 168, 130, 0.3); }
+    .code-icon { height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; }
+    .code-column .section-label { margin-bottom: 1.2rem; }
+    .code-column p {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px;
+      line-height: 1.95; color: var(--text-body);
+    }
+
+    /* === Collection === */
+    #collection { background: var(--ivory); padding: 12rem 4rem; }
+    .collection-header { text-align: center; margin-bottom: 0; }
+    .collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1100px; margin: 0 auto; }
+    .collection-card { background: var(--black); display: flex; flex-direction: column; transition: background 0.5s; }
+    .collection-card:hover { background: var(--plum-mid); }
+    .card-visual { aspect-ratio: 2/3; display: flex; align-items: center; justify-content: center; padding: 3rem; border-bottom: 1px solid rgba(196, 168, 130, 0.08); }
+    .piece-svg { width: 100%; max-width: 140px; opacity: 0.85; transition: opacity 0.4s; }
+    .collection-card:hover .piece-svg { opacity: 1; }
+    .card-info { padding: 0 2.5rem 3rem; text-align: center; }
+    .card-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 32px; color: var(--ivory); margin-bottom: 0.8rem; }
+    .card-material { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 8.5px; letter-spacing: 0.28em; color: var(--platinum); margin-bottom: 2rem; line-height: 1.8; }
+    .card-enquire { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 8.5px; letter-spacing: 0.35em; color: var(--champagne); text-decoration: none; border-bottom: 1px solid rgba(196, 168, 130, 0.3); padding-bottom: 2px; transition: border-color 0.3s; }
+    .card-enquire:hover { border-color: var(--champagne); }
+    .collection-footer { text-align: center; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 18px; color: rgba(9, 8, 6, 0.45); margin-top: 5rem; letter-spacing: 0.02em; }
+
+    /* === The World === */
+    #the-world { background: var(--black); padding: 8rem 0 12rem; }
+    .world-header { text-align: center; padding: 0 4rem; margin-bottom: 8rem; }
+    .world-panel { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; border-top: 1px solid rgba(196, 168, 130, 0.06); }
+    .world-panel:last-child { border-bottom: 1px solid rgba(196, 168, 130, 0.06); }
+    .world-panel-text { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+    .world-panel-visual { position: relative; overflow: hidden; }
+    .world-panel:nth-child(1) .world-panel-visual { background: radial-gradient(ellipse at 50% 80%, var(--plum) 0%, var(--black) 65%); }
+    .world-panel:nth-child(2) .world-panel-visual { background: repeating-linear-gradient(45deg, rgba(196, 168, 130, 0.02) 0px, rgba(196, 168, 130, 0.02) 1px, transparent 1px, transparent 32px), repeating-linear-gradient(-45deg, rgba(196, 168, 130, 0.02) 0px, rgba(196, 168, 130, 0.02) 1px, transparent 1px, transparent 32px), var(--black-mid); }
+    .world-panel:nth-child(3) .world-panel-visual { background: linear-gradient(90deg, var(--black) 0%, rgba(196, 168, 130, 0.06) 30%, var(--black) 60%, rgba(196, 168, 130, 0.04) 80%, var(--black) 100%); }
+    .world-panel:nth-child(4) .world-panel-visual { display: flex; align-items: center; justify-content: center; background: var(--black-mid); }
+    .world-panel-text .section-label { margin-bottom: 0.6rem; }
+    .world-panel-text h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(28px, 3vw, 44px); color: var(--ivory); line-height: 1.2; margin-bottom: 2rem; }
+    .world-panel-text p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px; line-height: 1.95; color: var(--text-body); max-width: 380px; }
+    .world-panel:nth-child(even) .world-panel-text { order: 2; }
+    .world-panel:nth-child(even) .world-panel-visual { order: 1; }
+
+    /* === Enquire === */
+    #enquire { background: linear-gradient(180deg, var(--plum-mid) 0%, var(--black) 100%); padding: 14rem 4rem; text-align: center; }
+    .enquire-inner { max-width: 600px; margin: 0 auto; }
+    .enquire-display { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(38px, 5vw, 64px); line-height: 1.15; color: var(--ivory); margin: 2rem 0 3rem; }
+    .enquire-display em { font-style: italic; color: var(--champagne); }
+    .enquire-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px; line-height: 1.95; color: var(--platinum); margin-bottom: 3.5rem; }
+    .enquire-form { display: flex; gap: 0; max-width: 420px; margin: 0 auto; border: 1px solid rgba(196, 168, 130, 0.25); }
+    .enquire-input { flex: 1; background: transparent; border: none; outline: none; padding: 1.2rem 1.8rem; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.1em; color: var(--ivory); }
+    .enquire-input::placeholder { color: var(--text-dim); letter-spacing: 0.1em; }
+    .enquire-submit { background: transparent; border: none; border-left: 1px solid rgba(196, 168, 130, 0.25); padding: 1.2rem 2rem; font-family: 'Jost', sans-serif; font-weight: 200; font-size: 8.5px; letter-spacing: 0.38em; color: var(--champagne); cursor: none; transition: background 0.3s; }
+    .enquire-submit:hover { background: rgba(196, 168, 130, 0.08); }
+    .enquire-note { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 0.25em; color: var(--text-dim); margin-top: 2rem; }
+
+    /* === Footer === */
+    footer { background: var(--black); border-top: 1px solid rgba(196, 168, 130, 0.08); padding: 4rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
+    .footer-logo { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 0.38em; color: var(--champagne); display: flex; align-items: center; gap: 1rem; }
+    .footer-copy { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 8.5px; letter-spacing: 0.22em; color: var(--text-dim); text-align: center; }
+    .footer-links { display: flex; justify-content: flex-end; gap: 2.5rem; }
+    .footer-links a { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 8.5px; letter-spacing: 0.28em; color: var(--platinum); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--champagne); }
+
+    /* === Focus Styles === */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--champagne); outline-offset: 4px;
+    }
+
+    /* === Mobile Responsive === */
+    @media (max-width: 768px) {
+      #nav { padding: 1.5rem 1.8rem; }
+      #nav.scrolled { padding: 1.2rem 1.8rem; }
+      .nav-center { display: none; }
+      .hero-display { font-size: clamp(42px, 10vw, 64px); }
+      .manifesto-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .house-code-grid { grid-template-columns: 1fr; gap: 1px; }
+      .collection-grid { grid-template-columns: 1fr; gap: 2px; }
+      .world-panel { grid-template-columns: 1fr; }
+      .world-panel-visual { min-height: 240px; order: 1 !important; }
+      .world-panel-text { padding: 3.5rem 2rem; order: 2 !important; }
+      footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      .footer-links { justify-content: center; }
+      section { padding: 7rem 1.8rem !important; }
+    }
+
+    /* === Reduced Motion === */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .reveal-line { width: 100% !important; }
+      #page-curtain { display: none; }
+      #cursor, #cursor-dot { display: none; }
+      body { cursor: auto; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Custom Cursor (desktop only, activated by JS) -->
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ghost" id="cursor-ghost" aria-hidden="true">
-    <svg viewBox="0 0 12 24" width="12" height="24"><use href="#lozenge"/></svg>
+  <!-- Page Load Curtain -->
+  <div id="page-curtain">
+    <div class="curtain-lozenge">
+      <svg width="24" height="40" viewBox="0 0 24 40"><path d="M12 0 L24 20 L12 40 L0 20 Z" fill="none" stroke="var(--champagne)" stroke-width="1"/></svg>
+    </div>
   </div>
 
-  <!-- SVG Definitions (reusable symbols) -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <defs>
-      <!-- Lozenge: elongated diamond motif -->
-      <symbol id="lozenge" viewBox="0 0 12 24">
-        <path d="M6 0 L12 12 L6 24 L0 12 Z" fill="currentColor"/>
-      </symbol>
-      <!-- Lozenge outline variant -->
-      <symbol id="lozenge-outline" viewBox="0 0 12 24">
-        <path d="M6 1.5 L11 12 L6 22.5 L1 12 Z" fill="none" stroke="currentColor" stroke-width="0.75"/>
-      </symbol>
-    </defs>
-  </svg>
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__brand utility-nav">House Harlequin</a>
-      <div class="nav__divider lozenge lozenge--sm">
-        <svg><use href="#lozenge"/></svg>
-      </div>
-      <div class="nav__links">
-        <a href="#collection" class="nav__link utility-nav">Collection</a>
-        <a href="#house-code" class="nav__link utility-nav">The House</a>
-        <a href="#enquire" class="nav__link utility-nav">Enquire</a>
-      </div>
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo"><span>HOUSE HARLEQUIN</span></a>
+    <div class="nav-center">
+      <svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg>
+    </div>
+    <div class="nav-links">
+      <a href="#collection">COLLECTION</a>
+      <a href="#house-code">THE HOUSE</a>
+      <a href="#enquire">ENQUIRE</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header id="hero" class="section hero">
-    <div class="hero__bg"></div>
-    <div class="section-inner hero__inner">
-      <div class="lozenge lozenge--lg hero-entrance">
-        <svg><use href="#lozenge"/></svg>
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal" data-delay="200">
+        <svg width="24" height="40" viewBox="0 0 24 40"><path d="M12 0 L24 20 L12 40 L0 20 Z" fill="none" stroke="var(--champagne)" stroke-width="1"/></svg>
       </div>
-      <p class="utility-label hero__label hero-entrance">House Harlequin</p>
-      <h1 class="display-xl hero__tagline hero-entrance">The mask reveals.<br>The jewel remains.</h1>
-      <hr class="hero__rule hero-entrance">
-      <a href="#collection" class="hero__cta hero-entrance"><span>Enter the Collection</span><svg class="lozenge lozenge--sm" style="width:6px;height:12px"><use href="#lozenge"/></svg></a>
+      <div class="hero-label reveal" data-delay="400">HOUSE HARLEQUIN</div>
+      <h1 class="hero-display reveal" data-delay="600">You're already beautiful.<br><em>Just notice.</em></h1>
+      <div class="hero-rule reveal" data-delay="800"><div class="hero-rule-line reveal-line"></div></div>
+      <a href="#collection" class="hero-cta reveal" data-delay="1000">ENTER THE COLLECTION</a>
     </div>
-    <div class="hero__scroll-indicator">
-      <svg class="lozenge" style="width:8px;height:16px"><use href="#lozenge"/></svg>
+    <div class="hero-scroll-indicator">
+      <svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <!-- Manifesto -->
-    <section id="manifesto" class="section manifesto">
-      <div class="section-inner grid-2">
-        <div class="manifesto__quote reveal">
-          <p class="display-lg">"There is power in wearing a mask. Not to hide, but to choose what is seen."</p>
-        </div>
-        <div class="manifesto__body reveal">
-          <p class="utility-body">House Harlequin was founded on a single conviction: jewellery is not decoration. It is a statement made without speaking. A cipher only the wearer can read. We design for the woman who enters a room and changes its gravity. Not by volume. By precision.</p>
-        </div>
+  <!-- Manifesto -->
+  <section id="manifesto">
+    <div class="manifesto-inner">
+      <div class="manifesto-left">
+        <p class="manifesto-quote reveal">"There is power in wearing a mask. Not to hide — but to reveal more fully."</p>
       </div>
-      <div class="lozenge-divider">
-        <div class="lozenge lozenge--md">
-          <svg><use href="#lozenge"/></svg>
-        </div>
+      <div class="manifesto-right">
+        <p class="reveal" data-delay="150">House Harlequin was founded on a single idea: the world is already making the geometry of beauty. In ocean light. In aspen leaves. In the arc of snow behind a ski. In silk moving. In the curve of a lacquered surface catching the last sun.</p>
+        <p class="reveal" data-delay="250">We did not invent the pattern. We recognised it. We made it wearable.</p>
+        <p class="reveal" data-delay="350">Every piece carries the house mark: an elongated lozenge engraved where only the wearer knows. Not a logo. A code between the house and the hand that holds it.</p>
       </div>
-    </section>
+    </div>
+    <div class="lozenge-divider"><svg width="12" height="20" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--black)" stroke-width="0.75"/></svg></div>
+  </section>
 
-    <!-- House Code -->
-    <section id="house-code" class="section house-code">
-      <div class="section-inner">
-        <header class="section-header reveal">
-          <p class="utility-label">The House Code</p>
-          <p class="display-md">"A cipher in gold, a grammar in geometry."</p>
-        </header>
-        <div class="grid-3 house-code__grid">
-          <div class="house-code__column reveal">
-            <div class="house-code__visual">
-              <svg class="house-code__svg" width="60" height="120" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg">
-                <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
-                <path class="draw-path" d="M30 20 L46 60 L30 100 L14 60 Z" style="--path-length: 170;" />
-              </svg>
-            </div>
-            <p class="utility-label">Geometry</p>
-            <p class="utility-body">The lozenge is our only shape. Repeated, rotated, scaled -- never abandoned. A single form, endlessly reinterpreted.</p>
-          </div>
-          <div class="house-code__column reveal">
-            <div class="house-code__visual">
-              <svg class="house-code__svg" width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
-                <path class="draw-path" d="M70 4 L96 60 L70 116 L44 60 Z" style="--path-length: 250;" />
-                <path class="draw-path" d="M50 10 L50 110" style="--path-length: 110;" />
-              </svg>
-            </div>
-            <p class="utility-label">Duality</p>
-            <p class="utility-body">Every piece holds a tension. Visible and hidden. Sharp and soft. Public face and private meaning. The mask and what it reveals.</p>
-          </div>
-          <div class="house-code__column reveal">
-            <div class="house-code__visual">
-              <svg class="house-code__svg" width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-                <path class="draw-path" d="M4 30 L60 4 L116 30 L60 56 Z" style="--path-length: 250;" />
-                <path class="draw-path" d="M10 30 L110 30" style="--path-length: 110;" />
-              </svg>
-            </div>
-            <p class="utility-label">Time</p>
-            <p class="utility-body">We do not follow seasons. A piece enters the collection when it is ready. It leaves when the last one is claimed. There are no sales.</p>
-          </div>
-        </div>
+  <!-- House Code -->
+  <section id="house-code">
+    <div class="house-code-header reveal">
+      <span class="section-label">THE HOUSE CODE</span>
+      <h2 class="section-display">A cipher in light.<br><em>The geometry of a life beautifully lived.</em></h2>
+    </div>
+    <div class="lozenge-divider"><svg width="12" height="20" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+    <div class="house-code-grid">
+      <div class="code-column reveal" data-delay="0">
+        <div class="code-icon"><svg width="32" height="54" viewBox="0 0 32 54"><path d="M16 0 L32 27 L16 54 L0 27 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+        <span class="section-label">GEOMETRY</span>
+        <p>The lozenge is our only shape. Not a logo — a lens. The hidden lattice inside every beautiful moment, made permanent in gold.</p>
       </div>
-    </section>
+      <div class="code-column reveal" data-delay="150">
+        <div class="code-icon">
+          <svg width="32" height="54" viewBox="0 0 32 54"><path d="M16 0 L32 27 L16 54 L0 27 Z" fill="none" stroke="var(--ivory)" stroke-width="0.5" opacity="0.4"/><path d="M16 6 L28 27 L16 48 L4 27 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg>
+        </div>
+        <span class="section-label">DUALITY</span>
+        <p>Visible and hidden. Sharp and soft. The mask and what it reveals. Every piece holds a tension that does not resolve.</p>
+      </div>
+      <div class="code-column reveal" data-delay="300">
+        <div class="code-icon"><svg width="64" height="24" viewBox="0 0 64 24"><path d="M32 0 L64 12 L32 24 L0 12 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+        <span class="section-label">TIME</span>
+        <p>We do not follow seasons. A piece enters when it is ready. It leaves when the last is claimed. There are no sales. There is no urgency but your own.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Collection -->
-    <section id="collection" class="section collection">
-      <div class="section-inner">
-        <header class="section-header reveal">
-          <p class="utility-label">The Collection</p>
-          <p class="display-md">"Worn, not displayed."</p>
-        </header>
-        <div class="grid-3 collection__grid">
-          <article class="collection__card reveal">
-            <div class="collection__visual collection__visual--vesper">
-              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
-                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
-              </svg>
-            </div>
-            <div class="collection__info">
-              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
-              <h3 class="display-md collection__name">Vesper</h3>
-              <p class="utility-small">Pendant / 18k Gold / Black Enamel</p>
-              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
-            </div>
-          </article>
-          <article class="collection__card reveal">
-            <div class="collection__visual collection__visual--cipher">
-              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
-                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
-              </svg>
-            </div>
-            <div class="collection__info">
-              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
-              <h3 class="display-md collection__name">Cipher</h3>
-              <p class="utility-small">Stacking Rings / Platinum / Diamond</p>
-              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
-            </div>
-          </article>
-          <article class="collection__card reveal">
-            <div class="collection__visual collection__visual--veil">
-              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
-                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
-              </svg>
-            </div>
-            <div class="collection__info">
-              <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
-              <h3 class="display-md collection__name">Veil</h3>
-              <p class="utility-small">Drop Earrings / White Gold / Pearl</p>
-              <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
-            </div>
-          </article>
+  <!-- Collection -->
+  <section id="collection">
+    <div class="collection-header">
+      <span class="section-label reveal" style="color: rgba(9,8,6,0.5)">THE COLLECTION</span>
+      <h2 class="section-display reveal" data-delay="150" style="color: var(--black)"><em style="color: var(--black)">Worn, not displayed.</em></h2>
+    </div>
+    <div class="lozenge-divider"><svg width="12" height="20" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--black)" stroke-width="0.75"/></svg></div>
+    <div class="collection-grid">
+      <div class="collection-card reveal" data-delay="0">
+        <div class="card-visual">
+          <svg viewBox="0 0 200 300" class="piece-svg">
+            <path d="M100 60 L140 130 L100 200 L60 130 Z" fill="none" stroke="#c4a882" stroke-width="1"/>
+            <line x1="100" y1="20" x2="100" y2="60" stroke="#c4a882" stroke-width="0.75" stroke-dasharray="2 3"/>
+            <path d="M100 100 L110 115 L100 130 L90 115 Z" fill="rgba(196,168,130,0.15)" stroke="#c4a882" stroke-width="0.5"/>
+          </svg>
         </div>
-        <p class="display-md collection__footnote reveal" style="text-align: center; margin-top: 3rem;">"Each piece is numbered. When the last is claimed, the edition closes."</p>
+        <div class="card-info">
+          <div class="lozenge-divider" style="padding:1.5rem 0"><svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+          <h3 class="card-name">Vesper</h3>
+          <p class="card-material">18K YELLOW GOLD · PAVE LOZENGE PENDANT</p>
+          <a href="#enquire" class="card-enquire">ENQUIRE</a>
+        </div>
       </div>
-    </section>
+      <div class="collection-card reveal" data-delay="150">
+        <div class="card-visual">
+          <svg viewBox="0 0 200 300" class="piece-svg">
+            <ellipse cx="100" cy="110" rx="55" ry="12" fill="none" stroke="#c4a882" stroke-width="1"/>
+            <ellipse cx="100" cy="130" rx="55" ry="12" fill="none" stroke="#a8afb8" stroke-width="1"/>
+            <ellipse cx="100" cy="150" rx="55" ry="12" fill="none" stroke="#c4a882" stroke-width="0.75"/>
+            <path d="M100 126 L104 130 L100 134 L96 130 Z" fill="#c4a882"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="lozenge-divider" style="padding:1.5rem 0"><svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+          <h3 class="card-name">Cipher</h3>
+          <p class="card-material">BLACKENED GOLD · MARQUISE STACKING RINGS, SET THREE</p>
+          <a href="#enquire" class="card-enquire">ENQUIRE</a>
+        </div>
+      </div>
+      <div class="collection-card reveal" data-delay="300">
+        <div class="card-visual">
+          <svg viewBox="0 0 200 300" class="piece-svg">
+            <line x1="100" y1="30" x2="100" y2="75" stroke="#c4a882" stroke-width="0.75"/>
+            <path d="M100 75 Q120 120 100 175 Q80 120 100 75" fill="none" stroke="#c4a882" stroke-width="1"/>
+            <circle cx="100" cy="185" r="16" fill="rgba(240,235,224,0.08)" stroke="#c4a882" stroke-width="0.75"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="lozenge-divider" style="padding:1.5rem 0"><svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+          <h3 class="card-name">Veil</h3>
+          <p class="card-material">PLATINUM · ROSE-CUT DIAMOND DROP EARRINGS</p>
+          <a href="#enquire" class="card-enquire">ENQUIRE</a>
+        </div>
+      </div>
+    </div>
+    <p class="collection-footer reveal">Each piece is made in limited number. Enquiry opens the door.</p>
+  </section>
 
-    <!-- World -->
-    <section id="world" class="section world">
-      <div class="section-inner">
-        <header class="section-header reveal">
-          <p class="utility-label">The World</p>
-          <p class="display-md">"Four rooms. One house. No welcome mat."</p>
-        </header>
-        <div class="world__strip" tabindex="0" role="region" aria-label="World panels">
-          <article class="world__card reveal">
-            <div class="world__card-visual world__card-visual--salon"></div>
-            <div class="world__card-content">
-              <p class="utility-label">The Salon</p>
-              <p class="display-md">Private Client</p>
-              <p class="utility-body">By appointment only. A conversation, not a transaction.</p>
-            </div>
-          </article>
-          <article class="world__card reveal">
-            <div class="world__card-visual world__card-visual--archive"></div>
-            <div class="world__card-content">
-              <p class="utility-label">The Archive</p>
-              <p class="display-md">Heritage</p>
-              <p class="utility-body">Every piece documented. Every edition recorded. The house remembers.</p>
-            </div>
-          </article>
-          <article class="world__card reveal">
-            <div class="world__card-visual world__card-visual--object"></div>
-            <div class="world__card-content">
-              <p class="utility-label">The Object</p>
-              <p class="display-md">Materiality</p>
-              <p class="utility-body">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
-            </div>
-          </article>
-          <article class="world__card reveal">
-            <div class="world__card-visual world__card-visual--mark"></div>
-            <div class="world__card-content">
-              <p class="utility-label">The Mark</p>
-              <p class="display-md">The Seal</p>
-              <p class="utility-body">The lozenge is struck into every piece. Not a logo. A signature.</p>
-            </div>
-          </article>
+  <!-- The World -->
+  <section id="the-world">
+    <div class="world-header">
+      <span class="section-label reveal">THE WORLD OF HOUSE HARLEQUIN</span>
+      <h2 class="section-display reveal" data-delay="150">Beyond the jewel.<br><em>The house itself.</em></h2>
+    </div>
+    <div class="world-panels">
+      <div class="world-panel">
+        <div class="world-panel-text">
+          <span class="section-label reveal">PRIVATE CLIENT</span>
+          <h3 class="reveal" data-delay="100">Salon</h3>
+          <p class="reveal" data-delay="200">By appointment only. A conversation, not a transaction.</p>
+        </div>
+        <div class="world-panel-visual"></div>
+      </div>
+      <div class="world-panel">
+        <div class="world-panel-text">
+          <span class="section-label reveal">HERITAGE</span>
+          <h3 class="reveal" data-delay="100">Archive</h3>
+          <p class="reveal" data-delay="200">Every piece documented. Every edition recorded. The house remembers.</p>
+        </div>
+        <div class="world-panel-visual"></div>
+      </div>
+      <div class="world-panel">
+        <div class="world-panel-text">
+          <span class="section-label reveal">MATERIALITY</span>
+          <h3 class="reveal" data-delay="100">Object</h3>
+          <p class="reveal" data-delay="200">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
+        </div>
+        <div class="world-panel-visual"></div>
+      </div>
+      <div class="world-panel">
+        <div class="world-panel-text">
+          <span class="section-label reveal">THE SEAL</span>
+          <h3 class="reveal" data-delay="100">Mark</h3>
+          <p class="reveal" data-delay="200">The lozenge is struck into every piece. Not a logo. A signature.</p>
+        </div>
+        <div class="world-panel-visual">
+          <svg width="80" height="136" viewBox="0 0 32 54" style="opacity: 0.5"><path d="M16 0 L32 27 L16 54 L0 27 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Enquire -->
-    <section id="enquire" class="section enquire">
-      <div class="section-inner enquire__inner">
-        <div class="lozenge-divider reveal">
-          <div class="lozenge lozenge--md"><svg><use href="#lozenge"/></svg></div>
-        </div>
-        <p class="utility-label reveal">Enquire</p>
-        <p class="display-lg enquire__headline reveal"><em>Every piece begins with a conversation.</em></p>
-        <p class="utility-body enquire__body reveal">Leave your address. If a piece speaks, we will write.</p>
-        <form class="enquire__form reveal" onsubmit="return false;">
-          <input type="email" class="enquire__input" placeholder="your address" aria-label="Email address">
-          <button type="submit" class="enquire__submit">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M1 8h13M10 4l4 4-4 4" stroke="currentColor" stroke-width="0.75"/>
-            </svg>
-          </button>
-        </form>
-        <p class="utility-tiny enquire__note reveal">No newsletters. No noise. Only the house.</p>
+  <!-- Enquire -->
+  <section id="enquire">
+    <div class="enquire-inner">
+      <div class="lozenge-divider"><svg width="12" height="20" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg></div>
+      <span class="section-label reveal">PRIVATE ENQUIRY</span>
+      <h2 class="enquire-display reveal" data-delay="150">We are not a shop.<br><em>We are a house.</em><br>The door is open.</h2>
+      <p class="enquire-body reveal" data-delay="300">House Harlequin accepts enquiries for existing pieces and private commissions. Response within 48 hours. All conversations are confidential.</p>
+      <div class="enquire-form reveal" data-delay="450">
+        <input type="email" placeholder="your email address" class="enquire-input">
+        <button class="enquire-submit">ENTER</button>
       </div>
-    </section>
-  </main>
+      <p class="enquire-note reveal" data-delay="600">No newsletters. No noise. Only the house.</p>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="section footer">
-    <hr class="footer__rule hr-reveal">
-    <div class="section-inner footer__inner">
-      <div class="footer__brand">
-        <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
-        <span class="utility-tiny">House Harlequin</span>
-      </div>
-      <div class="footer__copyright">
-        <span class="utility-tiny">MMXXV</span>
-      </div>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <a href="#collection" class="utility-tiny">Collection</a>
-        <a href="#house-code" class="utility-tiny">The House</a>
-        <a href="#enquire" class="utility-tiny">Enquire</a>
-      </nav>
+  <footer>
+    <div class="footer-logo">
+      <svg width="8" height="14" viewBox="0 0 12 20"><path d="M6 0 L12 10 L6 20 L0 10 Z" fill="none" stroke="var(--champagne)" stroke-width="0.75"/></svg>
+      <span>HOUSE HARLEQUIN</span>
+    </div>
+    <div class="footer-copy">MMXXVI</div>
+    <div class="footer-links">
+      <a href="#enquire">ENQUIRE</a>
+      <a href="#collection">COLLECTION</a>
+      <a href="#house-code">THE HOUSE</a>
     </div>
   </footer>
 
   <script>
-  (function() {
-    'use strict';
-
-    // === Scroll-aware navigation ===
-    const nav = document.getElementById('nav');
-    const hero = document.getElementById('hero');
-
-    if (nav && hero) {
-      const heroHeight = () => hero.offsetHeight;
-
-      const onScroll = () => {
-        if (window.scrollY > heroHeight() * 0.5) {
-          nav.classList.add('is-scrolled');
-        } else {
-          nav.classList.remove('is-scrolled');
-        }
-      };
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll(); // initial check
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const dot = document.getElementById('cursor-dot');
+    let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px';
+    });
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.08;
+      cursorY += (mouseY - cursorY) * 0.08;
+      cursor.style.left = cursorX + 'px'; cursor.style.top = cursorY + 'px';
+      requestAnimationFrame(animateCursor);
     }
+    animateCursor();
 
-    // === Smooth scroll for anchor links ===
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+    // Nav scroll behavior
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // === Touch device detection ===
-    const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    // Page load curtain
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('page-curtain').classList.add('lifted');
+      }, 800);
+    });
 
-    // === Hero parallax ===
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const heroBg = document.querySelector('.hero__bg');
-
-    if (heroBg && hero && !prefersReducedMotion) {
-      let ticking = false;
-
-      const onParallax = () => {
-        const scrollY = window.scrollY;
-        const heroBottom = hero.offsetHeight;
-
-        if (scrollY <= heroBottom) {
-          heroBg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
-        }
-
-        ticking = false;
-      };
-
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(onParallax);
-          ticking = true;
-        }
-      }, { passive: true });
-    }
-
-    // === House Code SVG draw-in ===
-    const houseCodeGrid = document.querySelector('.house-code__grid');
-
-    if (houseCodeGrid && !prefersReducedMotion) {
-      const drawObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            drawObserver.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.3
-      });
-
-      drawObserver.observe(houseCodeGrid);
-    }
-
-    if (houseCodeGrid && prefersReducedMotion) {
-      houseCodeGrid.classList.add('is-visible');
-    }
-
-    // === Scroll reveal ===
-    const revealEls = document.querySelectorAll('.reveal');
-
-    if (revealEls.length > 0) {
-      // Assign stagger indices to sibling .reveal elements sharing the same parent
-      const parents = new Map();
-      revealEls.forEach(el => {
-        const parent = el.parentElement;
-        if (!parents.has(parent)) parents.set(parent, 0);
-        const idx = parents.get(parent);
-        el.style.setProperty('--reveal-index', idx);
-        parents.set(parent, idx + 1);
-      });
-
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      revealEls.forEach(el => revealObserver.observe(el));
-    }
-
-    // === HR reveal ===
-    const hrEls = document.querySelectorAll('.hr-reveal');
-
-    if (hrEls.length > 0 && !prefersReducedMotion) {
-      const hrObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            hrObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      hrEls.forEach(el => {
-        // If already visible in viewport on load, animate immediately
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('is-revealed');
-        } else {
-          hrObserver.observe(el);
+    // Scroll reveal system
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => { entry.target.classList.add('revealed'); }, delay);
+          revealObserver.unobserve(entry.target);
         }
       });
-    } else if (hrEls.length > 0 && prefersReducedMotion) {
-      // Reduced motion: show immediately
-      hrEls.forEach(el => el.classList.add('is-revealed'));
-    }
-
-    // === Custom cursor ===
-    if (!isTouchDevice && !prefersReducedMotion) {
-      const dot = document.getElementById('cursor-dot');
-      const ghost = document.getElementById('cursor-ghost');
-
-      if (dot && ghost) {
-        document.documentElement.classList.add('has-custom-cursor');
-
-        let mouseX = 0, mouseY = 0;
-        let dotX = 0, dotY = 0;
-        let ghostX = 0, ghostY = 0;
-
-        document.addEventListener('mousemove', function(e) {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-
-          // Activate on first mouse movement
-          dot.classList.add('is-active');
-          ghost.classList.add('is-active');
-        });
-
-        // Lerp function
-        var lerp = function(start, end, factor) { return start + (end - start) * factor; };
-
-        // rAF animation loop
-        var DOT_SPEED = 0.35;   // dot follows closely
-        var GHOST_SPEED = 0.12; // ghost trails behind
-
-        var animate = function() {
-          dotX = lerp(dotX, mouseX, DOT_SPEED);
-          dotY = lerp(dotY, mouseY, DOT_SPEED);
-          ghostX = lerp(ghostX, mouseX, GHOST_SPEED);
-          ghostY = lerp(ghostY, mouseY, GHOST_SPEED);
-
-          dot.style.transform = 'translate(' + (dotX - 3) + 'px, ' + (dotY - 3) + 'px)';
-          ghost.style.transform = 'translate(' + (ghostX - 6) + 'px, ' + (ghostY - 12) + 'px)';
-
-          requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-
-        // Hover color shift on links and buttons
-        var interactiveEls = document.querySelectorAll('a, button, [role="button"]');
-        interactiveEls.forEach(function(el) {
-          el.addEventListener('mouseenter', function() {
-            dot.classList.add('is-hovering');
-            ghost.classList.add('is-hovering');
-          });
-          el.addEventListener('mouseleave', function() {
-            dot.classList.remove('is-hovering');
-            ghost.classList.remove('is-hovering');
-          });
-        });
-
-        // Hide cursor when mouse leaves the window
-        document.addEventListener('mouseleave', function() {
-          dot.classList.remove('is-active');
-          ghost.classList.remove('is-active');
-        });
-        document.addEventListener('mouseenter', function() {
-          dot.classList.add('is-active');
-          ghost.classList.add('is-active');
-        });
-      }
-    }
-  })();
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
-
