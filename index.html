@@ -684,6 +684,35 @@
         opacity: 1;
       }
     }
+
+    @keyframes hero-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Staggered entrance: each hero child fades up in sequence */
+    .hero-entrance {
+      opacity: 0;
+      animation: hero-fade-up 0.8s var(--ease-luxury) forwards;
+    }
+
+    .hero__inner > .hero-entrance:nth-child(1) { animation-delay: 0.2s; }
+    .hero__inner > .hero-entrance:nth-child(2) { animation-delay: 0.5s; }
+    .hero__inner > .hero-entrance:nth-child(3) { animation-delay: 0.8s; }
+    .hero__inner > .hero-entrance:nth-child(4) { animation-delay: 1.1s; }
+    .hero__inner > .hero-entrance:nth-child(5) { animation-delay: 1.4s; }
+
+    /* Scroll indicator fades in last */
+    .hero__scroll-indicator {
+      opacity: 0;
+      animation: hero-fade-up 0.8s var(--ease-luxury) 1.8s forwards;
+    }
   }
 
   /* === Utilities === */
@@ -745,13 +774,13 @@
   <!-- Hero -->
   <header id="hero" class="section hero">
     <div class="section-inner hero__inner">
-      <div class="lozenge lozenge--lg">
+      <div class="lozenge lozenge--lg hero-entrance">
         <svg><use href="#lozenge"/></svg>
       </div>
-      <p class="utility-label hero__label">House Harlequin</p>
-      <h1 class="display-xl hero__tagline">The mask reveals.<br>The jewel remains.</h1>
-      <hr class="hero__rule">
-      <a href="#collection" class="hero__cta"><span>Enter the Collection</span><svg class="lozenge lozenge--sm" style="width:6px;height:12px"><use href="#lozenge"/></svg></a>
+      <p class="utility-label hero__label hero-entrance">House Harlequin</p>
+      <h1 class="display-xl hero__tagline hero-entrance">The mask reveals.<br>The jewel remains.</h1>
+      <hr class="hero__rule hero-entrance">
+      <a href="#collection" class="hero__cta hero-entrance"><span>Enter the Collection</span><svg class="lozenge lozenge--sm" style="width:6px;height:12px"><use href="#lozenge"/></svg></a>
     </div>
     <div class="hero__scroll-indicator">
       <svg class="lozenge" style="width:8px;height:16px"><use href="#lozenge"/></svg>
