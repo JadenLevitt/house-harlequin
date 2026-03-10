@@ -583,65 +583,90 @@
       background: var(--black);
     }
 
-    .world__panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--section-gap);
-      padding: clamp(2rem, 4vw, 4rem) 0;
-      border-bottom: 1px solid rgba(200, 169, 110, 0.1);
-    }
-
-    .world__panel:last-child {
-      border-bottom: none;
-    }
-
-    .world__text {
+    .world__strip {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.75rem;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
 
-    .world__visual {
-      aspect-ratio: 16 / 9;
-      border-radius: 0;
+    .world__strip::-webkit-scrollbar {
+      display: none;
     }
 
-    .world__visual--salon {
-      background: linear-gradient(135deg, var(--plum), var(--black));
+    .world__card {
+      flex: 0 0 clamp(280px, 70vw, 420px);
+      scroll-snap-align: start;
+      cursor: default;
     }
 
-    .world__visual--archive {
-      background: repeating-linear-gradient(
-        45deg,
-        transparent 0px,
-        transparent 20px,
-        rgba(176, 170, 162, 0.05) 20px,
-        rgba(176, 170, 162, 0.05) 21px
-      );
+    .world__card-visual {
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
     }
 
-    .world__visual--object {
-      background: repeating-linear-gradient(
-        90deg,
-        var(--champagne) 0px,
-        var(--champagne) 2px,
-        var(--black) 2px,
-        var(--black) 20px
-      );
-      opacity: 0.3;
+    .world__card-visual--salon {
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(42, 26, 46, 0.8) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(42, 26, 46, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, var(--plum), var(--black));
     }
 
-    .world__visual--mark {
+    .world__card-visual--archive {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(176, 170, 162, 0.06) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent 0px,
+          transparent 20px,
+          rgba(176, 170, 162, 0.07) 20px,
+          rgba(176, 170, 162, 0.07) 21px
+        ),
+        var(--black);
+    }
+
+    .world__card-visual--object {
+      background:
+        radial-gradient(ellipse at 50% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(201, 169, 110, 0.25) 0px,
+          rgba(201, 169, 110, 0.25) 2px,
+          var(--black) 2px,
+          var(--black) 20px
+        );
+    }
+
+    .world__card-visual--mark {
+      background: var(--black);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--black);
+    }
+
+    .world__card-visual--mark::before {
+      content: '';
+      width: 80px;
+      height: 160px;
+      background: var(--champagne);
+      opacity: 0.08;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .world__card-content {
+      padding: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     @media (max-width: 768px) {
-      .world__panel {
-        grid-template-columns: 1fr;
+      .world__card {
+        flex: 0 0 85vw;
       }
     }
 
@@ -985,37 +1010,43 @@
     <!-- World -->
     <section id="world" class="section world">
       <div class="section-inner">
-        <div class="world__panel">
-          <div class="world__text">
-            <p class="utility-label">The Salon</p>
-            <p class="display-md">Private Client</p>
-            <p class="utility-body">By appointment only. A conversation, not a transaction.</p>
-          </div>
-          <div class="world__visual world__visual--salon"></div>
-        </div>
-        <div class="world__panel">
-          <div class="world__text">
-            <p class="utility-label">The Archive</p>
-            <p class="display-md">Heritage</p>
-            <p class="utility-body">Every piece documented. Every edition recorded. The house remembers.</p>
-          </div>
-          <div class="world__visual world__visual--archive"></div>
-        </div>
-        <div class="world__panel">
-          <div class="world__text">
-            <p class="utility-label">The Object</p>
-            <p class="display-md">Materiality</p>
-            <p class="utility-body">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
-          </div>
-          <div class="world__visual world__visual--object"></div>
-        </div>
-        <div class="world__panel">
-          <div class="world__text">
-            <p class="utility-label">The Mark</p>
-            <p class="display-md">The Seal</p>
-            <p class="utility-body">The lozenge is struck into every piece. Not a logo. A signature.</p>
-          </div>
-          <div class="world__visual world__visual--mark"></div>
+        <header class="section-header">
+          <p class="utility-label">The World</p>
+          <p class="display-md">"Four rooms. One house. No welcome mat."</p>
+        </header>
+        <div class="world__strip">
+          <article class="world__card">
+            <div class="world__card-visual world__card-visual--salon"></div>
+            <div class="world__card-content">
+              <p class="utility-label">The Salon</p>
+              <p class="display-md">Private Client</p>
+              <p class="utility-body">By appointment only. A conversation, not a transaction.</p>
+            </div>
+          </article>
+          <article class="world__card">
+            <div class="world__card-visual world__card-visual--archive"></div>
+            <div class="world__card-content">
+              <p class="utility-label">The Archive</p>
+              <p class="display-md">Heritage</p>
+              <p class="utility-body">Every piece documented. Every edition recorded. The house remembers.</p>
+            </div>
+          </article>
+          <article class="world__card">
+            <div class="world__card-visual world__card-visual--object"></div>
+            <div class="world__card-content">
+              <p class="utility-label">The Object</p>
+              <p class="display-md">Materiality</p>
+              <p class="utility-body">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
+            </div>
+          </article>
+          <article class="world__card">
+            <div class="world__card-visual world__card-visual--mark"></div>
+            <div class="world__card-content">
+              <p class="utility-label">The Mark</p>
+              <p class="display-md">The Seal</p>
+              <p class="utility-body">The lozenge is struck into every piece. Not a logo. A signature.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
