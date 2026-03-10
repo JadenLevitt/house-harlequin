@@ -319,16 +319,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, var(--black) 0%, #0f0a12 40%, var(--plum) 100%);
+      background: var(--black);
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero__bg {
       position: absolute;
       inset: 0;
       z-index: 0;
+      background: linear-gradient(180deg, var(--black) 0%, #0f0a12 40%, var(--plum) 100%);
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .hero__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='24' viewBox='0 0 12 24'%3E%3Cpath d='M6 0 L12 12 L6 24 L0 12 Z' fill='%23c9a96e'/%3E%3C/svg%3E");
       background-size: 30px 60px;
       opacity: 0.03;
@@ -773,6 +782,7 @@
 
   <!-- Hero -->
   <header id="hero" class="section hero">
+    <div class="hero__bg"></div>
     <div class="section-inner hero__inner">
       <div class="lozenge lozenge--lg hero-entrance">
         <svg><use href="#lozenge"/></svg>
@@ -990,6 +1000,32 @@
         }
       });
     });
+
+    // === Hero parallax ===
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const heroBg = document.querySelector('.hero__bg');
+
+    if (heroBg && hero && !prefersReducedMotion) {
+      let ticking = false;
+
+      const onParallax = () => {
+        const scrollY = window.scrollY;
+        const heroBottom = hero.offsetHeight;
+
+        if (scrollY <= heroBottom) {
+          heroBg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
+        }
+
+        ticking = false;
+      };
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(onParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+    }
   })();
   </script>
 </body>
