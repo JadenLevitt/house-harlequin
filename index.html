@@ -696,6 +696,7 @@
 
     .enquire__form {
       display: flex;
+      align-items: center;
       gap: 0;
       width: 100%;
       max-width: 400px;
@@ -704,36 +705,47 @@
 
     .enquire__input {
       flex: 1;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 0;
       background: transparent;
-      border: 1px solid var(--champagne);
+      border: none;
+      border-bottom: 1px solid var(--champagne);
+      border-radius: 0;
       color: var(--ivory);
       font-family: var(--font-utility);
       font-weight: 300;
       font-size: 13px;
       letter-spacing: 0.05em;
       outline: none;
+      transition: border-bottom-color var(--duration-fast) var(--ease-luxury);
+    }
+
+    .enquire__input:focus {
+      border-bottom-color: rgba(201, 169, 110, 0.8);
     }
 
     .enquire__input::placeholder {
       color: var(--platinum);
-      opacity: 0.6;
+      opacity: 0.5;
+      font-style: italic;
     }
 
     .enquire__submit {
-      padding: 0.75rem 1.5rem;
-      background: transparent;
-      border: 1px solid var(--champagne);
-      border-left: none;
+      padding: 0.75rem 1rem;
+      background: none;
+      border: none;
       color: var(--champagne);
       cursor: pointer;
-      transition: background var(--duration-fast) var(--ease-luxury),
-                  color var(--duration-fast) var(--ease-luxury);
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      transition: opacity var(--duration-fast) var(--ease-luxury);
     }
 
     .enquire__submit:hover {
-      background: var(--champagne);
-      color: var(--black);
+      opacity: 1;
     }
 
     /* Footer */
@@ -1067,14 +1079,18 @@
         <div class="lozenge-divider">
           <div class="lozenge lozenge--md"><svg><use href="#lozenge"/></svg></div>
         </div>
-        <p class="utility-label">Private Enquiry</p>
-        <p class="display-lg enquire__headline">"We are not a shop. We are a house.<br>The door is open."</p>
+        <p class="utility-label">Enquire</p>
+        <p class="display-lg enquire__headline"><em>Every piece begins with a conversation.</em></p>
         <p class="utility-body enquire__body">Leave your address. If a piece speaks, we will write.</p>
         <form class="enquire__form" onsubmit="return false;">
-          <input type="email" class="enquire__input" placeholder="your email address" aria-label="Email address">
-          <button type="submit" class="enquire__submit utility-nav">Enter</button>
+          <input type="email" class="enquire__input" placeholder="your address" aria-label="Email address">
+          <button type="submit" class="enquire__submit">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M1 8h13M10 4l4 4-4 4" stroke="currentColor" stroke-width="0.75"/>
+            </svg>
+          </button>
         </form>
-        <p class="utility-small enquire__note">No newsletters. No noise. Only the house.</p>
+        <p class="utility-tiny enquire__note">No newsletters. No noise. Only the house.</p>
       </div>
     </section>
   </main>
