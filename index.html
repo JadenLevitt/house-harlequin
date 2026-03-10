@@ -752,13 +752,13 @@
     .footer {
       background: var(--black);
       padding-top: 0;
-      padding-bottom: clamp(2rem, 4vw, 3rem);
+      padding-bottom: clamp(1.5rem, 3vw, 2rem);
     }
 
     .footer__rule {
       border: none;
-      border-top: 1px solid rgba(201, 169, 110, 0.2);
-      margin-bottom: clamp(2rem, 4vw, 3rem);
+      border-top: 1px solid rgba(201, 169, 110, 0.15);
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
     }
 
     .footer__inner {
@@ -771,6 +771,15 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      opacity: 0.45;
+    }
+
+    .footer__brand .lozenge {
+      opacity: 0.6;
+    }
+
+    .footer__copyright {
+      opacity: 0.4;
     }
 
     .footer__nav {
@@ -780,17 +789,18 @@
 
     .footer__nav a {
       color: var(--champagne);
+      opacity: 0.5;
       transition: opacity var(--duration-fast);
     }
 
     .footer__nav a:hover {
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
       .footer__inner {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         text-align: center;
       }
     }
