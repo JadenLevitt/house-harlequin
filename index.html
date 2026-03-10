@@ -519,17 +519,32 @@
       justify-content: center;
     }
 
-    /* CSS-generated geometric placeholders */
+    /* CSS-generated harlequin lozenge checker patterns */
     .collection__visual--vesper {
-      background: linear-gradient(180deg, var(--black) 0%, var(--plum) 50%, var(--black) 100%);
+      background-color: var(--black);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L20 10 L10 20 L0 10 Z' fill='%232a1a2e' opacity='0.6'/%3E%3C/svg%3E");
+      background-size: 20px 20px;
     }
 
     .collection__visual--cipher {
-      background: linear-gradient(135deg, var(--black) 0%, var(--oxblood) 50%, var(--black) 100%);
+      background-color: var(--black);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M18 0 L36 18 L18 36 L0 18 Z' fill='%234a1a2a' opacity='0.5'/%3E%3C/svg%3E");
+      background-size: 36px 36px;
     }
 
     .collection__visual--veil {
-      background: linear-gradient(180deg, var(--plum) 0%, var(--black) 100%);
+      background-color: var(--black);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 0 L48 24 L24 48 L0 24 Z' fill='%23c9a96e' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 48px 48px;
+    }
+
+    .collection__visual-icon {
+      color: var(--champagne);
+      opacity: 0.15;
+    }
+
+    .collection__name {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
     }
 
     .collection__info {
@@ -914,7 +929,11 @@
         </header>
         <div class="grid-3 collection__grid">
           <article class="collection__card">
-            <div class="collection__visual collection__visual--vesper"></div>
+            <div class="collection__visual collection__visual--vesper">
+              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
+                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+              </svg>
+            </div>
             <div class="collection__info">
               <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
               <h3 class="display-md collection__name">Vesper</h3>
@@ -923,7 +942,11 @@
             </div>
           </article>
           <article class="collection__card">
-            <div class="collection__visual collection__visual--cipher"></div>
+            <div class="collection__visual collection__visual--cipher">
+              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
+                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+              </svg>
+            </div>
             <div class="collection__info">
               <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
               <h3 class="display-md collection__name">Cipher</h3>
@@ -932,7 +955,11 @@
             </div>
           </article>
           <article class="collection__card">
-            <div class="collection__visual collection__visual--veil"></div>
+            <div class="collection__visual collection__visual--veil">
+              <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
+                <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+              </svg>
+            </div>
             <div class="collection__info">
               <div class="lozenge lozenge--sm"><svg><use href="#lozenge"/></svg></div>
               <h3 class="display-md collection__name">Veil</h3>
