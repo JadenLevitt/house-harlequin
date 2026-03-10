@@ -847,6 +847,19 @@
       opacity: 0;
       animation: hero-fade-up 0.8s var(--ease-luxury) 1.8s forwards;
     }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 450ms var(--ease-luxury), transform 450ms var(--ease-luxury);
+      transition-delay: calc(var(--reveal-index, 0) * 100ms);
+    }
+
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* === Utilities === */
@@ -873,6 +886,16 @@
 
       .house-code__svg .draw-path {
         stroke-dashoffset: 0 !important;
+      }
+
+      .reveal {
+        transform: none !important;
+        transition-property: opacity !important;
+        transition-duration: 300ms !important;
+      }
+
+      .reveal.is-revealed {
+        transform: none !important;
       }
     }
   }
@@ -930,10 +953,10 @@
     <!-- Manifesto -->
     <section id="manifesto" class="section manifesto">
       <div class="section-inner grid-2">
-        <div class="manifesto__quote">
+        <div class="manifesto__quote reveal">
           <p class="display-lg">"There is power in wearing a mask. Not to hide, but to choose what is seen."</p>
         </div>
-        <div class="manifesto__body">
+        <div class="manifesto__body reveal">
           <p class="utility-body">House Harlequin was founded on a single conviction: jewellery is not decoration. It is a statement made without speaking. A cipher only the wearer can read. We design for the woman who enters a room and changes its gravity. Not by volume. By precision.</p>
         </div>
       </div>
@@ -947,12 +970,12 @@
     <!-- House Code -->
     <section id="house-code" class="section house-code">
       <div class="section-inner">
-        <header class="section-header">
+        <header class="section-header reveal">
           <p class="utility-label">The House Code</p>
           <p class="display-md">"A cipher in gold, a grammar in geometry."</p>
         </header>
         <div class="grid-3 house-code__grid">
-          <div class="house-code__column">
+          <div class="house-code__column reveal">
             <div class="house-code__visual">
               <svg class="house-code__svg" width="60" height="120" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg">
                 <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
@@ -962,7 +985,7 @@
             <p class="utility-label">Geometry</p>
             <p class="utility-body">The lozenge is our only shape. Repeated, rotated, scaled -- never abandoned. A single form, endlessly reinterpreted.</p>
           </div>
-          <div class="house-code__column">
+          <div class="house-code__column reveal">
             <div class="house-code__visual">
               <svg class="house-code__svg" width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
                 <path class="draw-path" d="M30 4 L56 60 L30 116 L4 60 Z" style="--path-length: 250;" />
@@ -973,7 +996,7 @@
             <p class="utility-label">Duality</p>
             <p class="utility-body">Every piece holds a tension. Visible and hidden. Sharp and soft. Public face and private meaning. The mask and what it reveals.</p>
           </div>
-          <div class="house-code__column">
+          <div class="house-code__column reveal">
             <div class="house-code__visual">
               <svg class="house-code__svg" width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
                 <path class="draw-path" d="M4 30 L60 4 L116 30 L60 56 Z" style="--path-length: 250;" />
@@ -990,12 +1013,12 @@
     <!-- Collection -->
     <section id="collection" class="section collection">
       <div class="section-inner">
-        <header class="section-header">
+        <header class="section-header reveal">
           <p class="utility-label">The Collection</p>
           <p class="display-md">"Worn, not displayed."</p>
         </header>
         <div class="grid-3 collection__grid">
-          <article class="collection__card">
+          <article class="collection__card reveal">
             <div class="collection__visual collection__visual--vesper">
               <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
                 <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -1008,7 +1031,7 @@
               <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
             </div>
           </article>
-          <article class="collection__card">
+          <article class="collection__card reveal">
             <div class="collection__visual collection__visual--cipher">
               <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
                 <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -1021,7 +1044,7 @@
               <a href="#enquire" class="utility-nav collection__enquire">Enquire</a>
             </div>
           </article>
-          <article class="collection__card">
+          <article class="collection__card reveal">
             <div class="collection__visual collection__visual--veil">
               <svg class="collection__visual-icon" viewBox="0 0 60 120" width="60" height="120">
                 <path d="M30 4 L56 60 L30 116 L4 60 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -1035,19 +1058,19 @@
             </div>
           </article>
         </div>
-        <p class="display-md collection__footnote" style="text-align: center; margin-top: 3rem;">"Each piece is numbered. When the last is claimed, the edition closes."</p>
+        <p class="display-md collection__footnote reveal" style="text-align: center; margin-top: 3rem;">"Each piece is numbered. When the last is claimed, the edition closes."</p>
       </div>
     </section>
 
     <!-- World -->
     <section id="world" class="section world">
       <div class="section-inner">
-        <header class="section-header">
+        <header class="section-header reveal">
           <p class="utility-label">The World</p>
           <p class="display-md">"Four rooms. One house. No welcome mat."</p>
         </header>
         <div class="world__strip">
-          <article class="world__card">
+          <article class="world__card reveal">
             <div class="world__card-visual world__card-visual--salon"></div>
             <div class="world__card-content">
               <p class="utility-label">The Salon</p>
@@ -1055,7 +1078,7 @@
               <p class="utility-body">By appointment only. A conversation, not a transaction.</p>
             </div>
           </article>
-          <article class="world__card">
+          <article class="world__card reveal">
             <div class="world__card-visual world__card-visual--archive"></div>
             <div class="world__card-content">
               <p class="utility-label">The Archive</p>
@@ -1063,7 +1086,7 @@
               <p class="utility-body">Every piece documented. Every edition recorded. The house remembers.</p>
             </div>
           </article>
-          <article class="world__card">
+          <article class="world__card reveal">
             <div class="world__card-visual world__card-visual--object"></div>
             <div class="world__card-content">
               <p class="utility-label">The Object</p>
@@ -1071,7 +1094,7 @@
               <p class="utility-body">We choose materials the way a poet chooses words. Nothing decorative. Everything structural.</p>
             </div>
           </article>
-          <article class="world__card">
+          <article class="world__card reveal">
             <div class="world__card-visual world__card-visual--mark"></div>
             <div class="world__card-content">
               <p class="utility-label">The Mark</p>
@@ -1086,13 +1109,13 @@
     <!-- Enquire -->
     <section id="enquire" class="section enquire">
       <div class="section-inner enquire__inner">
-        <div class="lozenge-divider">
+        <div class="lozenge-divider reveal">
           <div class="lozenge lozenge--md"><svg><use href="#lozenge"/></svg></div>
         </div>
-        <p class="utility-label">Enquire</p>
-        <p class="display-lg enquire__headline"><em>Every piece begins with a conversation.</em></p>
-        <p class="utility-body enquire__body">Leave your address. If a piece speaks, we will write.</p>
-        <form class="enquire__form" onsubmit="return false;">
+        <p class="utility-label reveal">Enquire</p>
+        <p class="display-lg enquire__headline reveal"><em>Every piece begins with a conversation.</em></p>
+        <p class="utility-body enquire__body reveal">Leave your address. If a piece speaks, we will write.</p>
+        <form class="enquire__form reveal" onsubmit="return false;">
           <input type="email" class="enquire__input" placeholder="your address" aria-label="Email address">
           <button type="submit" class="enquire__submit">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -1100,7 +1123,7 @@
             </svg>
           </button>
         </form>
-        <p class="utility-tiny enquire__note">No newsletters. No noise. Only the house.</p>
+        <p class="utility-tiny enquire__note reveal">No newsletters. No noise. Only the house.</p>
       </div>
     </section>
   </main>
@@ -1207,6 +1230,35 @@
 
     if (houseCodeGrid && prefersReducedMotion) {
       houseCodeGrid.classList.add('is-visible');
+    }
+
+    // === Scroll reveal ===
+    const revealEls = document.querySelectorAll('.reveal');
+
+    if (revealEls.length > 0) {
+      // Assign stagger indices to sibling .reveal elements sharing the same parent
+      const parents = new Map();
+      revealEls.forEach(el => {
+        const parent = el.parentElement;
+        if (!parents.has(parent)) parents.set(parent, 0);
+        const idx = parents.get(parent);
+        el.style.setProperty('--reveal-index', idx);
+        parents.set(parent, idx + 1);
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealEls.forEach(el => revealObserver.observe(el));
     }
   })();
   </script>
