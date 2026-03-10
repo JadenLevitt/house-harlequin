@@ -1365,6 +1365,80 @@
       // Reduced motion: show immediately
       hrEls.forEach(el => el.classList.add('is-revealed'));
     }
+
+    // === Custom cursor ===
+    if (!isTouchDevice) {
+      const dot = document.getElementById('cursor-dot');
+      const ghost = document.getElementById('cursor-ghost');
+
+      if (dot && ghost) {
+        document.documentElement.classList.add('has-custom-cursor');
+
+        let mouseX = 0, mouseY = 0;
+        let dotX = 0, dotY = 0;
+        let ghostX = 0, ghostY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Activate on first mouse movement
+          dot.classList.add('is-active');
+          ghost.classList.add('is-active');
+        });
+
+        // Lerp function
+        var lerp = function(start, end, factor) { return start + (end - start) * factor; };
+
+        // rAF animation loop
+        var DOT_SPEED = 0.35;   // dot follows closely
+        var GHOST_SPEED = 0.12; // ghost trails behind
+
+        if (!prefersReducedMotion) {
+          var animate = function() {
+            dotX = lerp(dotX, mouseX, DOT_SPEED);
+            dotY = lerp(dotY, mouseY, DOT_SPEED);
+            ghostX = lerp(ghostX, mouseX, GHOST_SPEED);
+            ghostY = lerp(ghostY, mouseY, GHOST_SPEED);
+
+            dot.style.transform = 'translate(' + (dotX - 3) + 'px, ' + (dotY - 3) + 'px)';
+            ghost.style.transform = 'translate(' + (ghostX - 6) + 'px, ' + (ghostY - 12) + 'px)';
+
+            requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        } else {
+          // Reduced motion: snap to position (no lerp lag)
+          document.addEventListener('mousemove', function(e) {
+            dot.style.transform = 'translate(' + (e.clientX - 3) + 'px, ' + (e.clientY - 3) + 'px)';
+            ghost.style.transform = 'translate(' + (e.clientX - 6) + 'px, ' + (e.clientY - 12) + 'px)';
+          });
+        }
+
+        // Hover color shift on links and buttons
+        var interactiveEls = document.querySelectorAll('a, button, [role="button"]');
+        interactiveEls.forEach(function(el) {
+          el.addEventListener('mouseenter', function() {
+            dot.classList.add('is-hovering');
+            ghost.classList.add('is-hovering');
+          });
+          el.addEventListener('mouseleave', function() {
+            dot.classList.remove('is-hovering');
+            ghost.classList.remove('is-hovering');
+          });
+        });
+
+        // Hide cursor when mouse leaves the window
+        document.addEventListener('mouseleave', function() {
+          dot.classList.remove('is-active');
+          ghost.classList.remove('is-active');
+        });
+        document.addEventListener('mouseenter', function() {
+          dot.classList.add('is-active');
+          ghost.classList.add('is-active');
+        });
+      }
+    }
   })();
   </script>
 </body>
