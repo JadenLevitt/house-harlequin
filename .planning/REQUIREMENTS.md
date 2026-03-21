@@ -87,49 +87,47 @@ Deferred to future release.
 
 ## Traceability
 
-Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAND-01 | TBD | Pending |
-| LAND-02 | TBD | Pending |
-| LAND-03 | TBD | Pending |
-| LAND-04 | TBD | Pending |
-| LAND-05 | TBD | Pending |
-| MANF-01 | TBD | Pending |
-| MANF-02 | TBD | Pending |
-| MANF-03 | TBD | Pending |
-| MANF-04 | TBD | Pending |
-| MANF-05 | TBD | Pending |
-| INV-01 | TBD | Pending |
-| INV-02 | TBD | Pending |
-| INV-03 | TBD | Pending |
-| INV-04 | TBD | Pending |
-| GIFT-01 | TBD | Pending |
-| GIFT-02 | TBD | Pending |
-| GIFT-03 | TBD | Pending |
-| GIFT-04 | TBD | Pending |
-| GIFT-05 | TBD | Pending |
-| GIFT-06 | TBD | Pending |
-| GIFT-07 | TBD | Pending |
-| GIFT-08 | TBD | Pending |
-| DESG-01 | TBD | Pending |
-| DESG-02 | TBD | Pending |
-| DESG-03 | TBD | Pending |
-| DESG-04 | TBD | Pending |
-| DESG-05 | TBD | Pending |
-| DESG-06 | TBD | Pending |
-| A11Y-01 | TBD | Pending |
-| A11Y-02 | TBD | Pending |
-| A11Y-03 | TBD | Pending |
-| PERF-01 | TBD | Pending |
-| PERF-02 | TBD | Pending |
+| LAND-01 | Phase 8 | Pending |
+| LAND-02 | Phase 8 | Pending |
+| LAND-03 | Phase 8 | Pending |
+| LAND-04 | Phase 8 | Pending |
+| LAND-05 | Phase 8 | Pending |
+| MANF-01 | Phase 9 | Pending |
+| MANF-02 | Phase 9 | Pending |
+| MANF-03 | Phase 9 | Pending |
+| MANF-04 | Phase 9 | Pending |
+| MANF-05 | Phase 9 | Pending |
+| INV-01 | Phase 9 | Pending |
+| INV-02 | Phase 9 | Pending |
+| INV-03 | Phase 9 | Pending |
+| INV-04 | Phase 9 | Pending |
+| GIFT-01 | Phase 10 | Pending |
+| GIFT-02 | Phase 10 | Pending |
+| GIFT-03 | Phase 10 | Pending |
+| GIFT-04 | Phase 10 | Pending |
+| GIFT-05 | Phase 10 | Pending |
+| GIFT-06 | Phase 10 | Pending |
+| GIFT-07 | Phase 10 | Pending |
+| GIFT-08 | Phase 10 | Pending |
+| DESG-01 | Phase 7 | Pending |
+| DESG-02 | Phase 7 | Pending |
+| DESG-03 | Phase 7 | Pending |
+| DESG-04 | Phase 7 | Pending |
+| DESG-05 | Phase 7 | Pending |
+| DESG-06 | Phase 7 | Pending |
+| A11Y-01 | Phase 11 | Pending |
+| A11Y-02 | Phase 11 | Pending |
+| A11Y-03 | Phase 11 | Pending |
+| PERF-01 | Phase 11 | Pending |
+| PERF-02 | Phase 11 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 33 total
-- Mapped to phases: 0
-- Unmapped: 33
+- Mapped to phases: 33
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-21*
-*Last updated: 2026-03-21 after initial definition*
+*Last updated: 2026-03-21 — traceability complete after v2.0 roadmap*
