@@ -102,14 +102,15 @@ body::after {
   min-width: 100%; min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  opacity: .6;
+  z-index: 1;
 }
 
-/* Atmospheric fallback when no video */
+/* Atmospheric fallback — only visible if video fails to load */
 .landing-atmo {
   position: absolute;
   inset: 0;
   background: var(--void);
+  z-index: 0;
 }
 .landing-atmo::before {
   content: '';
@@ -139,14 +140,14 @@ body::after {
   100% { opacity: .8; transform: scale(1.1); }
 }
 
-/* Dark vignette over video */
+/* Soft vignette over video — edges only */
 .landing-vignette {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, var(--void) 100%),
-    linear-gradient(180deg, rgba(5,4,7,.3) 0%, transparent 30%, transparent 70%, rgba(5,4,7,.6) 100%);
+    radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, var(--void) 100%),
+    linear-gradient(180deg, rgba(5,4,7,.2) 0%, transparent 20%, transparent 80%, rgba(5,4,7,.4) 100%);
 }
 
 /* Brand name */
