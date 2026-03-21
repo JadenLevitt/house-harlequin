@@ -2,73 +2,91 @@
 
 ## What This Is
 
-A single-page luxury jewelry website for House Harlequin — a modern fine jewelry house defined by disciplined drama, faceted geometry, and sensual restraint. The site is not a storefront; it is an atmospheric brand threshold. A stranger landing here should feel they have found something, not been sold something.
+An ultra-private bespoke couture fine jewelry house website. Not an e-commerce site — a private world built around intimacy, recognition, devotion, and the art of noticing. Two paths: the public face (About the House + invitation request) and a password-gated private portal for gift recipients. References the emotional territory of JAR / Joel Arthur Rosenthal in terms of privacy, rarity, discretion, and couture intimacy.
 
 ## Core Value
 
-The site must feel like being handed a heavy black envelope with no return address — and choosing to open it. Every pixel earns that feeling.
+The site must feel like entering the most luxurious, discreet, invitation-based jewelry house in the world — a place devoted to the art of noticing beauty that already exists.
+
+## Current Milestone: v2.0 — Complete Redesign
+
+**Goal:** Rebuild the site from scratch as a two-path private jewelry house: public face (video + manifesto + invitation) and private gift portal (password-gated recipient experience).
+
+**Target features:**
+- Full-bleed hero video with post-playback CTAs
+- About the House manifesto page
+- Invitation request form
+- Password-gated gift recipient portal
+- Lozenge motif as structural detail throughout
 
 ## Requirements
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Single HTML file with embedded CSS/JS — v1.0 Phase 1
+- ✓ Cormorant Garamond + Jost typography pairing — v1.0 Phase 1
+- ✓ SVG lozenge motif system — v1.0 Phase 1
+- ✓ Responsive layout fundamentals — v1.0 Phase 1
 
 ### Active
 
-- [ ] Single HTML file with embedded CSS and JS — no frameworks, no clutter
-- [ ] Full aesthetic system: custom palette (black, ivory, champagne, platinum, plum, oxblood, bone), Cormorant Garamond + Jost typography, harlequin lozenge motif
-- [ ] Fixed minimal nav with scroll-aware backdrop blur
-- [ ] Full-viewport cinematic hero with staggered text reveal and parallax
-- [ ] Manifesto section — two-column pull quote and body text on ivory
-- [ ] "The House Code" section — three-column signature study on black (Geometry, Duality, Time)
-- [ ] Collection section — three portrait-format cards with CSS-generated jewelry forms, no prices, enquiry-only
-- [ ] "The World" section — four horizontal panels (Salon, Archive, Object, Mark) with CSS atmospherics
-- [ ] Enquire section — spare centered layout with email input on plum-to-black gradient
-- [ ] Footer with lozenge wordmark, copyright, and navigation links
-- [ ] Custom cursor — champagne lozenge follower with hover state transitions
-- [ ] IntersectionObserver-driven scroll reveals with staggered animations
-- [ ] Animated horizontal rules, lozenge divider hover effects, collection card hover borders
-- [ ] All visuals CSS-generated — gradients, SVG geometry, lozenge patterns — no stock photos
-- [ ] Responsive: desktop three-column grids collapse to single-column on mobile
+- [ ] Full-bleed hero video landing (no text at load, CTAs fade in after video completes)
+- [ ] Two-path architecture: "About the House" and "Did someone notice you?"
+- [ ] About the House manifesto with specific brand copy
+- [ ] Invitation request form (Name, Email, "What are you looking for?")
+- [ ] Password-gated gift recipient portal
+- [ ] Gift page: personal message, piece story, multimedia, intimate ceremonial feel
+- [ ] Lozenge motif as subtle structural detail throughout
+- [ ] Dark, warm, restrained palette (void, smoke, bone, lacquer, champagne)
+- [ ] Scroll-triggered reveals with slow fades
+- [ ] Accessibility: reduced motion, keyboard nav, contrast ratios
+- [ ] Performance: Lighthouse 95+, minimal page weight
 
 ### Out of Scope
 
-- E-commerce / cart / checkout — this is not a shop, it is a house
-- Stock photography or external image assets — CSS atmospherics only
-- JavaScript frameworks (React, Vue, etc.) — vanilla JS only
-- Backend / server-side logic — static single file
-- Newsletter signup system — "No newsletters. No noise. Only the house."
-- CMS or content management — content is authored directly
-- Multi-page routing — single page, natural scroll
+- E-commerce / cart / checkout / prices — not a shop, a house
+- Product grid or collection cards — no retail patterns
+- Stock photography — video + CSS atmospherics
+- JavaScript frameworks — vanilla JS only
+- Newsletter signup — discreet, not transactional
+- Custom cursor — usability issue for minimal payoff
+- Masks/secrecy/costume/coded identity language — brand is about noticing and revealing
+- Scroll-jacking or snap scrolling
+- Generic luxury cliches ("crafted with passion", "timeless elegance")
 
 ## Context
 
-House Harlequin is a fictional luxury jewelry brand with a distinct creative voice: specificity over generality, restraint over spectacle, mystery over announcement. The brand vocabulary deliberately avoids words like "luxury," "exclusive," "timeless," "premium," "crafted with care," and "our passion."
+House Harlequin is a bespoke couture fine jewelry house. The brand idea: beauty is already present — in light, movement, texture, atmosphere, and in the woman herself. The house notices it and gives it form. Sometimes what matters is noticing yourself; sometimes what matters is being noticed by someone else.
 
-The harlequin lozenge (elongated diamond) is the singular brand motif — used as dividers, accents, seals, and the custom cursor shape. It is NOT a checkerboard pattern. One shape, used sparingly and precisely.
+The site has two audiences:
+1. **Prospective clients** — arrive via the public face, read the manifesto, may request an invitation
+2. **Gift recipients** — arrive with a private password from someone who purchased a piece for them, enter a personal portal with a message, the story behind the piece, and multimedia
 
-Three named pieces anchor the collection: Vesper (pendant), Cipher (stacking rings), Veil (drop earrings). All are enquiry-only — no prices displayed.
+A brand video (38s, h264 mp4, 18MB) exists at `public/brand-film.mp4`. The video is cinematic and atmospheric — it serves as the emotional threshold into the brand.
 
-The enquiry form is cosmetic for now; can be wired to Formspree later.
+The lozenge (elongated diamond) is the singular brand motif. It represents the hidden geometry within beauty. Used as structural detail, not decoration.
+
+Copy voice: sparse, intelligent, feminine, sensual, observant. Never cheesy, never self-help, never trend-driven. Lean into: notice, reveal, light, texture, movement, form, reflection, luminous, radiant, seen.
 
 ## Constraints
 
-- **Tech stack**: Single HTML file, embedded CSS/JS, Google Fonts (Cormorant Garamond, Jost), vanilla JS only
-- **Assets**: Zero external images — all visuals are CSS gradients, SVG geometry, and lozenge patterns
-- **Motion**: No bounce, no spring — easing is `cubic-bezier(0.16, 1, 0.3, 1)`. No scroll-jacking or snap.
-- **Typography**: Cormorant Garamond italic for display (never bold), Jost 300 all-caps for utility. Line height 1.05–1.1 for display.
-- **Copy voice**: Short or long sentences, never medium. Fragments or full thoughts. The brand is discovered, not announced.
+- **Tech stack**: Single HTML file, embedded CSS/JS, Google Fonts, vanilla JS only
+- **Video**: `public/brand-film.mp4` (18MB, 38s, 1920x1080, h264)
+- **Motion**: Slow, quiet. Easing: `cubic-bezier(0.16, 1, 0.3, 1)`. No bounce, no spring.
+- **Typography**: Cormorant Garamond italic for display. Jost 200-300 for utility labels.
+- **Palette**: void (#050407), lacquer (#0a0910), smoke (#141218), bone (#e8e0d0), champagne (#c9a96e)
+- **Hosting**: Vercel via GitHub, Vite build with vite-plugin-singlefile
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Single HTML file | Self-contained, no build tools, reinforces restraint | — Pending |
-| CSS-only visuals | No external dependencies, brand-aligned minimalism | — Pending |
-| No prices shown | Enquiry-only model matches brand positioning | — Pending |
-| Custom cursor lozenge | Reinforces brand motif at interaction level | — Pending |
-| Cormorant Garamond + Jost | High-contrast serif/sans pairing, cinematic and utilitarian | — Pending |
+| Two-path architecture | Public face + private gift portal — matches brand's dual audience | — Pending |
+| Video as threshold, not decoration | Film plays fully without overlay; CTAs appear after completion | — Pending |
+| Password-gated gift portal | Each recipient gets a singular, intimate experience | — Pending |
+| No custom cursor | Usability issue identified in v1.0 prototyping | ✓ Good |
+| No product grid/prices | Brand is invitation-only, not retail | ✓ Good |
+| Remove mask/secrecy language | Brand is about noticing and revealing, not disguise | ✓ Good |
 
 ---
-*Last updated: 2026-03-09 after initialization*
+*Last updated: 2026-03-21 after milestone v2.0 started*

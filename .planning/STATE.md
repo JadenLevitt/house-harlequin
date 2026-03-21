@@ -2,53 +2,27 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-09)
+See: .planning/PROJECT.md (updated 2026-03-21)
 
-**Core value:** The site must feel like being handed a heavy black envelope with no return address -- every pixel earns that feeling.
-**Current focus:** Phase 1: Foundation and Navigation
+**Core value:** The site must feel like entering the most luxurious, discreet, invitation-based jewelry house in the world.
+**Current focus:** Milestone v2.0 — Complete Redesign
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation and Navigation) -- COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-03-09 -- Completed 01-02 Navigation Polish and Verification
-
-Progress: [██░░░░░░░░] 17%
-
-## Performance Metrics
-
-**Velocity:**
-- Total plans completed: 2
-- Average duration: 3.5 minutes
-- Total execution time: 0.12 hours
-
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 1 - Foundation | 2 | 7 min | 3.5 min |
-
-**Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (2 min)
-- Trend: Accelerating
-
-*Updated after each plan completion*
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-21 — Milestone v2.0 started
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- Roadmap: Layout-first, animate-second approach (per research recommendation)
-- Roadmap: Nav included in Phase 1 since it depends on typography/tokens and enables section scroll testing
-- 01-01: CSS @layer architecture with 7 layers for cascade control
-- 01-01: Google Fonts CDN with preconnect (not self-hosted) for cross-site caching
-- 01-01: Inline SVG symbol/use pattern for lozenge reuse
-- 01-02: Letter-spacing expansion (0.25em to 0.35em) for nav hover instead of opacity
-- 01-02: Brand wordmark wider tracking (0.3em) and weight 400 for hierarchy over links
+- v1.0 Phase 1 validated: Cormorant Garamond + Jost, lozenge SVG motif, responsive layout
+- Custom cursor removed — usability issue identified during prototyping
+- Brand direction pivoted from masks/secrecy to noticing/revealing
+- Video hero established (38s brand film, 18MB mp4)
+- Two-path architecture: public face + private gift portal
 
 ### Pending Todos
 
@@ -56,10 +30,4 @@ None yet.
 
 ### Blockers/Concerns
 
-- ~~Verify vite-plugin-singlefile compatibility with Vite 7~~ -- RESOLVED: vite-plugin-singlefile 2.x works with Vite 7.3.1, build produces single HTML file (24.63 KB)
-
-## Session Continuity
-
-Last session: 2026-03-09
-Stopped at: Completed 01-02-PLAN.md (Navigation Polish and Verification) -- Phase 1 complete
-Resume file: .planning/phases/01-foundation-navigation/01-02-SUMMARY.md
+None.
