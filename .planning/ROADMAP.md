@@ -121,10 +121,10 @@ Plans:
   3. Lozenge motif appears as a structural divider or accent mark — not decorative filler — in at least one visible location
   4. A film grain overlay is visible at low opacity over the page background
   5. Any element with a transition moves with the specified slow easing — no snap, no bounce
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: TBD
+- [ ] 07-01-PLAN.md — Design system foundation (palette, typography, lozenge, grain, motion, scroll reveals)
 
 ### Phase 8: Video Landing and Two-Path Navigation
 **Goal**: A visitor landing on the site experiences the brand film as a full-viewport threshold, then is offered exactly two paths — one to understand the house, one for gift recipients
@@ -201,7 +201,7 @@ v2.0 phases execute in numeric order: 7 → 8 → 9 → 10 → 11
 | 4. World, Enquire, and Footer | v1.0 | 0/2 | Superseded | - |
 | 5. Animation and Interaction | v1.0 | 0/2 | Superseded | - |
 | 6. Accessibility and Performance | v1.0 | 0/2 | Superseded | - |
-| 7. Design System Foundation | v2.0 | 0/TBD | Not started | - |
+| 7. Design System Foundation | v2.0 | 0/1 | Not started | - |
 | 8. Video Landing and Two-Path Navigation | v2.0 | 0/TBD | Not started | - |
 | 9. Manifesto and Invitation | v2.0 | 0/TBD | Not started | - |
 | 10. Gift Portal | v2.0 | 0/TBD | Not started | - |
