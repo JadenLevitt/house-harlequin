@@ -10,6 +10,7 @@
 <style>
 :root {
   --void: #050407;
+  --lacquer: #0a0910;
   --bone: #e8e0d0;
   --bone-60: rgba(232,224,208,.6);
   --bone-30: rgba(232,224,208,.3);
@@ -36,26 +37,11 @@ body {
 
 ::selection { background: var(--champ); color: var(--void); }
 
-/* ══════════════════════════════
-   LANDING PAGE
-══════════════════════════════ */
-#landing {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--void);
-}
+/* All pages hidden by default */
+.page { display: none; min-height: 100vh; background: var(--void); }
+.page.show { display: block; }
 
-#landing video {
-  position: absolute;
-  top: 50%; left: 50%;
-  min-width: 100%; min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-}
-
-/* Logo image — invert black logo to white for dark bg */
+/* Logo image */
 .logo-img {
   height: 28px;
   width: auto;
@@ -64,9 +50,26 @@ body {
   transition: opacity .4s;
 }
 .logo-img:hover { opacity: 1; }
-.logo-img-sm { height: 18px; opacity: .3; }
 
-/* Centered logo — top of page */
+/* ══════════════════════════════
+   LANDING PAGE
+══════════════════════════════ */
+#page-home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+#page-home.show { display: block; }
+
+#page-home video {
+  position: absolute;
+  top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
 #logo-replay {
   position: absolute;
   top: 3rem;
@@ -79,15 +82,9 @@ body {
   transition: opacity 1.2s var(--ease);
   pointer-events: none;
 }
-#logo-replay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-#logo-replay .logo-img {
-  height: 80px;
-}
+#logo-replay.show { opacity: 1; pointer-events: auto; }
+#logo-replay .logo-img { height: 80px; }
 
-/* CTAs — centered, positioned 1/3 up from bottom */
 #ctas {
   position: absolute;
   top: 67%;
@@ -101,10 +98,7 @@ body {
   transition: opacity 1.2s var(--ease);
   pointer-events: none;
 }
-#ctas.show {
-  opacity: 1;
-  pointer-events: auto;
-}
+#ctas.show { opacity: 1; pointer-events: auto; }
 
 .cta {
   font-family: 'Jost', sans-serif;
@@ -125,7 +119,7 @@ body {
 }
 
 /* ══════════════════════════════
-   MODALS — passphrase + invitation
+   MODALS
 ══════════════════════════════ */
 .modal-overlay {
   position: fixed;
@@ -166,7 +160,7 @@ body {
   border: none;
   transition: color .3s;
 }
-.modal-close:hover { color: var(--bone-30); }
+.modal-close:hover { color: var(--bone-60); }
 
 .modal-title {
   font-family: 'Cormorant Garamond', serif;
@@ -177,10 +171,7 @@ body {
   line-height: 1.3;
   margin-bottom: .5rem;
 }
-.modal-title em {
-  color: var(--bone);
-  font-weight: 400;
-}
+.modal-title em { color: var(--bone); font-weight: 400; }
 
 .modal-sub {
   font-family: 'Jost', sans-serif;
@@ -210,16 +201,9 @@ body {
   transition: border-color .4s;
   margin-bottom: 1.5rem;
 }
-.modal-input::placeholder {
-  color: var(--bone-30);
-  font-size: 15px;
-  font-weight: 300;
-}
-.modal-input:focus {
-  border-color: var(--champ-40);
-}
+.modal-input::placeholder { color: var(--bone-30); font-size: 15px; font-weight: 300; }
+.modal-input:focus { border-color: var(--champ-40); }
 
-/* Invitation form has left-aligned fields */
 .modal-form .modal-input {
   text-align: left;
   font-family: 'Jost', sans-serif;
@@ -238,7 +222,6 @@ body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
   font-size: 13px;
-  letter-spacing: .02em;
   color: var(--bone);
   outline: none;
   resize: vertical;
@@ -264,12 +247,8 @@ body {
   transition: all .4s;
   margin-top: .5rem;
 }
-.modal-submit:hover {
-  border-color: var(--champ-40);
-  color: var(--champ);
-}
+.modal-submit:hover { border-color: var(--champ-40); color: var(--champ); }
 
-/* Shake animation for wrong password */
 @keyframes shake {
   0%,100% { transform: translateX(0); }
   20% { transform: translateX(-6px); }
@@ -279,7 +258,6 @@ body {
 }
 .shake .modal-input { animation: shake .4s ease; border-color: rgba(160,70,50,.3); }
 
-/* Success state */
 .modal-success {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
@@ -292,15 +270,8 @@ body {
 .modal-form.hidden { display: none; }
 
 /* ══════════════════════════════
-   ABOUT PAGE
+   ABOUT PAGE — /aboutthehouse
 ══════════════════════════════ */
-#about-page {
-  display: none;
-  min-height: 100vh;
-  background: var(--void);
-}
-#about-page.show { display: block; }
-
 .about-back {
   position: fixed;
   top: 2.5rem;
@@ -310,10 +281,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.about-back .logo-img {
-  height: 60px;
-  opacity: .6;
-}
+.about-back .logo-img { height: 60px; opacity: .6; }
 .about-back .logo-img:hover { opacity: 1; }
 
 .about-body {
@@ -352,11 +320,7 @@ body {
   color: var(--bone-60);
   margin-bottom: 2rem;
 }
-.about-text em {
-  font-style: italic;
-  color: var(--bone);
-  font-weight: 500;
-}
+.about-text em { font-style: italic; color: var(--bone); font-weight: 500; }
 
 .about-rule {
   width: 32px;
@@ -372,7 +336,6 @@ body {
   justify-content: center;
   animation: gentle-bounce 3s ease-in-out infinite;
 }
-
 @keyframes gentle-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -384,10 +347,7 @@ body {
   opacity: .9;
 }
 
-.about-cta-wrap {
-  text-align: center;
-  padding: 3rem 0 4rem;
-}
+.about-cta-wrap { text-align: center; padding: 3rem 0 4rem; }
 
 .about-cta {
   display: inline-block;
@@ -404,94 +364,63 @@ body {
   cursor: pointer;
   transition: color .4s, border-color .4s;
 }
-.about-cta:hover {
-  color: var(--bone);
-  border-color: var(--bone-60);
-}
+.about-cta:hover { color: var(--bone); border-color: var(--bone-60); }
 
 /* ══════════════════════════════
-   GIFT PAGE — the secret room
+   GIFT PAGE — /noticed pages
 ══════════════════════════════ */
-#gift-page {
-  display: none;
-  min-height: 100vh;
-  background: var(--void);
-}
-#gift-page.show { display: block; }
 
-.gift-hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Piece section — video + description */
+.gift-piece {
+  padding: clamp(8rem, 14vh, 12rem) 2rem clamp(3rem, 6vh, 6rem);
+  max-width: 700px;
+  margin: 0 auto;
   text-align: center;
-  padding: 2rem;
-  position: relative;
 }
 
-.gift-mark {
-  width: 1px; height: 48px;
-  background: linear-gradient(180deg, transparent, var(--champ-20), transparent);
-  margin-bottom: 2rem;
-}
-
-.gift-hero-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(26px, 4.5vw, 44px);
-  line-height: 1.35;
-  color: var(--bone-60);
-  max-width: 480px;
-}
-.gift-hero-text em {
-  color: var(--bone);
-  font-weight: 400;
-}
-
-.gift-scroll-hint {
-  position: absolute;
-  bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
-}
-.gift-scroll-line {
-  width: .5px; height: 28px;
-  background: linear-gradient(180deg, transparent, var(--champ-20));
-  animation: bob 3s ease-in-out infinite;
-}
-@keyframes bob {
-  0%,100% { transform: translateY(0); opacity: .2; }
-  50% { transform: translateY(8px); opacity: .5; }
-}
-
-/* Message card */
-.gift-card-wrap {
-  padding: clamp(3rem, 8vh, 8rem) 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.gift-card {
-  background: linear-gradient(165deg, #110f0c 0%, #0c0a08 100%);
-  border: .5px solid var(--champ-08);
-  max-width: 480px;
+.gift-piece-video-wrap {
   width: 100%;
-  padding: clamp(2.5rem, 5vw, 4rem);
-  position: relative;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
 }
-.gift-card::before,
-.gift-card::after {
-  content: '';
-  position: absolute;
-  width: 32px; height: 32px;
-  border-color: var(--champ-20);
-  border-style: solid;
+.gift-piece-video-wrap video {
+  width: 100%;
+  display: block;
 }
-.gift-card::before { top: 12px; left: 12px; border-width: .5px 0 0 .5px; }
-.gift-card::after { bottom: 12px; right: 12px; border-width: 0 .5px .5px 0; }
 
-.card-label {
+.gift-piece-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--bone);
+  margin-bottom: 1.5rem;
+}
+
+.gift-piece-desc {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 2;
+  color: var(--bone-60);
+}
+.gift-piece-desc em { color: var(--bone); font-weight: 500; }
+
+/* Note section */
+.gift-note {
+  padding: clamp(3rem, 6vh, 6rem) 2rem;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gift-note-rule {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, transparent, var(--champ-20), transparent);
+  margin: 0 auto 2.5rem;
+}
+
+.gift-note-label {
   font-family: 'Jost', sans-serif;
   font-weight: 200;
   font-size: 7px;
@@ -499,48 +428,23 @@ body {
   text-transform: uppercase;
   color: var(--champ-40);
   display: block;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
-.card-message {
+.gift-note-text {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.7;
   color: var(--bone-60);
-  margin-bottom: 2rem;
 }
-.card-message em {
-  color: var(--bone);
-  font-weight: 500;
-}
+.gift-note-text em { color: var(--bone); font-weight: 500; }
 
-.card-sign {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 15px;
-  color: var(--champ-20);
-}
-
-.card-piece {
-  display: block;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: .5px solid var(--champ-08);
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 7px;
-  letter-spacing: .5em;
-  text-transform: uppercase;
-  color: var(--bone-08);
-}
-
-/* Photos + videos grid */
+/* Media section */
 .gift-media {
-  padding: clamp(2rem, 5vh, 5rem) clamp(1rem, 3vw, 3rem);
-  max-width: 800px;
+  padding: clamp(3rem, 6vh, 6rem) clamp(1rem, 3vw, 3rem);
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -556,6 +460,12 @@ body {
   margin-bottom: clamp(1.5rem, 3vh, 3rem);
 }
 
+.gift-media-video {
+  width: 100%;
+  display: block;
+  margin-bottom: 3px;
+}
+
 .gift-media-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -564,9 +474,8 @@ body {
 
 .gift-media-item {
   aspect-ratio: 4/5;
-  background: #0a0910;
+  background: var(--lacquer);
   overflow: hidden;
-  position: relative;
 }
 .gift-media-item.wide {
   grid-column: 1 / -1;
@@ -610,14 +519,7 @@ body {
   border-top: .5px solid var(--champ-08);
   margin-top: clamp(2rem, 5vh, 5rem);
 }
-.gift-footer span {
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 7px;
-  letter-spacing: .5em;
-  text-transform: uppercase;
-  color: var(--bone-08);
-}
+.gift-footer .logo-img { height: 18px; opacity: .3; }
 
 /* ══════════════════════════════
    REDUCED MOTION
@@ -632,17 +534,16 @@ body {
 </head>
 <body>
 
-<!-- ══════════ LANDING ══════════ -->
-<div id="landing">
+<!-- ══════════ LANDING — / ══════════ -->
+<div id="page-home" class="page">
   <video id="hero-video" autoplay muted playsinline>
-    <!-- muted required for autoplay; unmute button provided -->
     <source src="brand-film-desktop.mp4" type="video/mp4">
   </video>
 
   <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
   <div id="ctas">
-    <a class="cta" id="cta-about">About the House</a>
+    <a class="cta" data-nav="/aboutthehouse">About the House</a>
     <a class="cta" id="cta-noticed">Did someone notice you?</a>
   </div>
 </div>
@@ -676,9 +577,9 @@ body {
   </div>
 </div>
 
-<!-- ══════════ ABOUT PAGE ══════════ -->
-<div id="about-page">
-  <a class="about-back" id="about-back"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
+<!-- ══════════ ABOUT — /aboutthehouse ══════════ -->
+<div id="page-about" class="page">
+  <a class="about-back" data-nav="/"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
   <div class="about-body">
     <div class="about-box-wrap">
@@ -723,87 +624,112 @@ body {
   </div>
 </div>
 
-<!-- ══════════ GIFT PAGE ══════════ -->
-<div id="gift-page">
-  <div class="gift-hero">
-    <div class="gift-mark"></div>
-    <p class="gift-hero-text">
-      Someone noticed<br><em>something already beautiful.</em>
+<!-- ══════════ GIFT: TWO POTATOES — /twopotatoes ══════════ -->
+<div id="page-twopotatoes" class="page">
+
+  <!-- Piece -->
+  <div class="gift-piece">
+    <div class="gift-piece-video-wrap">
+      <video autoplay muted loop playsinline>
+        <source src="twopotatoes/piece-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h1 class="gift-piece-name">Two Potatoes</h1>
+    <p class="gift-piece-desc">
+      18K gold with diamond pavé links. The left collar link is smaller than the right collar link, held in embrace, masculine and feminine. The chain is spliced between long and short links, representing two places held together in a single line. Tags at the nape of the neck are monogrammed with initials.
     </p>
-    <div class="gift-scroll-hint">
-      <div class="gift-scroll-line"></div>
-    </div>
   </div>
 
-  <div class="gift-card-wrap">
-    <div class="gift-card">
-      <span class="card-label">A note, for you</span>
-      <p class="card-message">
-        I saw this and thought of you immediately.
-        The way you carry yourself — <em>quietly luminous,
-        never asking to be seen but impossible to miss.</em>
-        <br><br>
-        This piece felt like it was already yours.
-        I just helped it find its way.
-      </p>
-      <span class="card-sign">With love</span>
-      <span class="card-piece">Vesper &mdash; 18k Yellow Gold Pavé Pendant</span>
-    </div>
+  <!-- Note -->
+  <div class="gift-note">
+    <div class="gift-note-rule"></div>
+    <span class="gift-note-label">A note, for you</span>
+    <p class="gift-note-text">
+      A little something to hold you wherever you are. I got you something to remind you of Aspen when you are in LA, so I wanted to get you something that reminded you of LA when you were in Aspen.
+    </p>
   </div>
 
+  <!-- Media -->
   <div class="gift-media">
-    <span class="gift-media-label">What inspired this piece</span>
-    <div class="gift-media-grid">
-      <div class="gift-media-item">
-        <div class="gift-media-ph"><span>photo</span></div>
-      </div>
-      <div class="gift-media-item">
-        <div class="gift-media-ph"><span>photo</span></div>
-      </div>
-      <div class="gift-media-item wide">
-        <div class="gift-media-ph"><span>video</span></div>
-      </div>
-      <div class="gift-media-item">
-        <div class="gift-media-ph"><span>photo</span></div>
-      </div>
-      <div class="gift-media-item">
-        <div class="gift-media-ph"><span>photo</span></div>
-      </div>
-    </div>
+    <span class="gift-media-label">For you</span>
+    <video class="gift-media-video" controls playsinline>
+      <source src="twopotatoes/personal-video.mp4" type="video/mp4">
+    </video>
   </div>
 
   <footer class="gift-footer">
-    <img src="logo.png" alt="House Harlequin" class="logo-img logo-img-sm">
+    <img src="logo.png" alt="House Harlequin" class="logo-img">
   </footer>
 </div>
 
 <script>
-const video = document.getElementById('hero-video');
+/* ══════════════════════════════
+   ROUTING
+══════════════════════════════ */
+const PASSPHRASES = {
+  'potato': '/twopotatoes'
+};
 
-/* ── Swap to mobile video if needed ── */
+function navigate(path, push = true) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('show'));
+
+  if (push) history.pushState(null, '', path);
+
+  // Route
+  if (path === '/aboutthehouse') {
+    document.getElementById('page-about').classList.add('show');
+    document.title = 'About the House — House Harlequin';
+  } else if (path === '/twopotatoes') {
+    document.getElementById('page-twopotatoes').classList.add('show');
+    document.title = 'Someone noticed you — House Harlequin';
+  } else {
+    // Home
+    document.getElementById('page-home').classList.add('show');
+    document.title = 'House Harlequin';
+    return; // don't scroll — landing is viewport-height
+  }
+  window.scrollTo(0, 0);
+}
+
+// Handle back/forward buttons
+window.addEventListener('popstate', () => navigate(location.pathname, false));
+
+// Handle all [data-nav] links
+document.addEventListener('click', e => {
+  const link = e.target.closest('[data-nav]');
+  if (link) {
+    e.preventDefault();
+    navigate(link.dataset.nav);
+  }
+});
+
+// Initial route
+navigate(location.pathname, false);
+
+/* ══════════════════════════════
+   VIDEO
+══════════════════════════════ */
+const video = document.getElementById('hero-video');
+const ctas = document.getElementById('ctas');
+const logo = document.getElementById('logo-replay');
+
+// Swap to mobile video if needed
 if (window.matchMedia('(max-width: 768px)').matches) {
   video.src = 'brand-film-mobile.mp4';
 }
 
-/* ── Ensure video plays — fallback for autoplay policy ── */
-video.addEventListener('canplay', () => {
-  video.play().catch(() => {});
-});
-// Also try immediately
+// Ensure video plays
+video.addEventListener('canplay', () => video.play().catch(() => {}));
 video.play().catch(() => {});
 
-/* ── If video completely fails to load, show CTAs anyway ── */
+// If video fails, show CTAs
 video.addEventListener('error', () => {
   ctas.classList.add('show');
   logo.classList.add('show');
 });
-const ctas = document.getElementById('ctas');
-const logo = document.getElementById('logo-replay');
-const landing = document.getElementById('landing');
-const aboutPage = document.getElementById('about-page');
-const giftPage = document.getElementById('gift-page');
 
-/* ── Pause 0.1s before end to freeze on visible frame ── */
+// Pause 0.1s before end to freeze on visible frame
 video.addEventListener('timeupdate', () => {
   if (video.duration && video.currentTime >= video.duration - 0.1) {
     video.pause();
@@ -812,7 +738,7 @@ video.addEventListener('timeupdate', () => {
   }
 });
 
-/* ── Logo click → replay video ── */
+// Logo click → replay video
 logo.addEventListener('click', () => {
   ctas.classList.remove('show');
   logo.classList.remove('show');
@@ -820,30 +746,9 @@ logo.addEventListener('click', () => {
   video.play();
 });
 
-/* ── Navigation helpers ── */
-function showPage(page) {
-  landing.style.display = 'none';
-  aboutPage.classList.remove('show');
-  giftPage.classList.remove('show');
-  page.classList.add('show');
-  window.scrollTo(0, 0);
-}
-
-function goHome() {
-  aboutPage.classList.remove('show');
-  giftPage.classList.remove('show');
-  landing.style.display = '';
-  // Show CTAs since we're returning
-  ctas.classList.add('show');
-  logo.classList.add('show');
-  video.pause();
-}
-
-/* ── About ── */
-document.getElementById('cta-about').addEventListener('click', () => showPage(aboutPage));
-document.getElementById('about-back').addEventListener('click', goHome);
-
-/* ── Modals ── */
+/* ══════════════════════════════
+   MODALS
+══════════════════════════════ */
 function openModal(id) { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
@@ -854,15 +759,16 @@ document.getElementById('cta-noticed').addEventListener('click', () => {
 });
 document.getElementById('pass-close').addEventListener('click', () => closeModal('modal-pass'));
 
-// Passphrase submit
+// Passphrase submit — looks up passphrase → URL mapping
 document.getElementById('pass-form').addEventListener('submit', e => {
   e.preventDefault();
   const input = document.getElementById('pass-input');
   const val = input.value.trim().toLowerCase();
+  const dest = PASSPHRASES[val];
 
-  if (val === 'potato') {
+  if (dest) {
     closeModal('modal-pass');
-    setTimeout(() => showPage(giftPage), 400);
+    setTimeout(() => navigate(dest), 400);
   } else {
     const modal = input.closest('.modal');
     modal.classList.add('shake');
@@ -872,11 +778,10 @@ document.getElementById('pass-form').addEventListener('submit', e => {
   }
 });
 
-// Invitation modal — from About page CTA
+// Invitation modal
 document.getElementById('about-invite-cta').addEventListener('click', () => openModal('modal-invite'));
 document.getElementById('invite-close').addEventListener('click', () => closeModal('modal-invite'));
 
-// Invitation form submit
 document.getElementById('invite-form').addEventListener('submit', e => {
   e.preventDefault();
   document.getElementById('invite-form').classList.add('hidden');
