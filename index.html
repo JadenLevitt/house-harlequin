@@ -635,7 +635,7 @@ body {
   <!-- Piece -->
   <div class="gift-piece">
     <div class="gift-piece-video-wrap">
-      <video autoplay muted loop playsinline>
+      <video id="piece-video" autoplay muted playsinline>
         <source src="twopotatoes/piece-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -803,6 +803,33 @@ document.addEventListener('keydown', e => {
     document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
   }
 });
+
+/* ══════════════════════════════
+   PING-PONG VIDEO (piece video)
+   Plays forward → backward → forward...
+══════════════════════════════ */
+const pieceVid = document.getElementById('piece-video');
+if (pieceVid) {
+  let reversing = false;
+  let rafId = null;
+
+  function stepBackward() {
+    if (!reversing) return;
+    pieceVid.currentTime = Math.max(0, pieceVid.currentTime - 0.04);
+    if (pieceVid.currentTime <= 0.05) {
+      reversing = false;
+      pieceVid.play();
+      return;
+    }
+    rafId = requestAnimationFrame(stepBackward);
+  }
+
+  pieceVid.addEventListener('ended', () => {
+    reversing = true;
+    pieceVid.pause();
+    stepBackward();
+  });
+}
 </script>
 </body>
 </html>
