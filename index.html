@@ -6,7 +6,7 @@
 <title>House Harlequin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
   --void: #050407;
@@ -303,24 +303,24 @@ body {
 
 .about-back {
   position: fixed;
-  top: 2rem; left: 2.5rem;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: .4em;
-  text-transform: uppercase;
-  color: var(--bone-15);
   text-decoration: none;
   cursor: pointer;
-  transition: color .4s;
 }
-.about-back:hover { color: var(--bone-30); }
+.about-back .logo-img {
+  height: 60px;
+  opacity: .6;
+}
+.about-back .logo-img:hover { opacity: 1; }
 
 .about-body {
   max-width: 560px;
   margin: 0 auto;
-  padding: clamp(6rem, 14vh, 12rem) 2rem clamp(4rem, 8vh, 8rem);
+  padding: clamp(8rem, 16vh, 14rem) 2rem clamp(6rem, 10vh, 10rem);
+  text-align: center;
 }
 
 .about-label {
@@ -335,8 +335,8 @@ body {
 }
 
 .about-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
+  font-family: 'Lora', serif;
+  font-weight: 400;
   font-style: italic;
   font-size: clamp(28px, 4vw, 42px);
   color: var(--bone);
@@ -345,9 +345,9 @@ body {
 }
 
 .about-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(16px, 2.2vw, 20px);
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(15px, 2vw, 18px);
   line-height: 2;
   color: var(--bone-60);
   margin-bottom: 2rem;
@@ -355,7 +355,7 @@ body {
 .about-text em {
   font-style: italic;
   color: var(--bone);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .about-rule {
@@ -363,19 +363,30 @@ body {
   height: .5px;
   background: var(--champ-20);
   border: none;
-  margin: 2.5rem 0;
+  margin: 2.5rem auto;
 }
 
 .about-box-wrap {
-  margin: 3.5rem 0 3rem;
+  margin: 0 0 3rem;
   display: flex;
   justify-content: center;
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .about-box-img {
-  width: clamp(200px, 40vw, 320px);
+  width: clamp(220px, 45vw, 340px);
   height: auto;
-  opacity: .85;
+  opacity: .9;
+}
+
+.about-cta-wrap {
+  text-align: center;
+  padding: 3rem 0 4rem;
 }
 
 .about-cta {
@@ -624,6 +635,7 @@ body {
 <!-- ══════════ LANDING ══════════ -->
 <div id="landing">
   <video id="hero-video" autoplay muted playsinline>
+    <!-- muted required for autoplay; unmute button provided -->
     <source src="brand-film-desktop.mp4" type="video/mp4">
   </video>
 
@@ -666,9 +678,13 @@ body {
 
 <!-- ══════════ ABOUT PAGE ══════════ -->
 <div id="about-page">
-  <a class="about-back" id="about-back"><img src="logo.png" alt="House Harlequin" class="logo-img" style="height:24px; opacity:.5;"></a>
+  <a class="about-back" id="about-back"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
   <div class="about-body">
+    <div class="about-box-wrap">
+      <img src="box.png" alt="House Harlequin" class="about-box-img">
+    </div>
+
     <span class="about-label">The House</span>
     <h1 class="about-headline">The art of noticing</h1>
 
@@ -701,11 +717,9 @@ body {
       Each piece is made privately, precisely, and with the conviction that beauty, once noticed, <em>deserves form.</em>
     </p>
 
-    <div class="about-box-wrap">
-      <img src="box.png" alt="House Harlequin" class="about-box-img">
+    <div class="about-cta-wrap">
+      <a class="about-cta" id="about-invite-cta">Request an invitation</a>
     </div>
-
-    <a class="about-cta" id="about-invite-cta">Request an invitation</a>
   </div>
 </div>
 
