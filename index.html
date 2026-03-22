@@ -362,6 +362,18 @@ body {
   margin: 2.5rem 0;
 }
 
+.about-box-wrap {
+  margin: 3.5rem 0 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.about-box-img {
+  width: clamp(200px, 40vw, 320px);
+  height: auto;
+  opacity: .85;
+}
+
 .about-cta {
   display: inline-block;
   font-family: 'Jost', sans-serif;
@@ -682,6 +694,10 @@ body {
     <p class="about-text">
       Each piece is made privately, precisely, and with the conviction that beauty, once noticed, <em>deserves form.</em>
     </p>
+
+    <div class="about-box-wrap">
+      <img src="box.png" alt="House Harlequin" class="about-box-img">
+    </div>
 
     <a class="about-cta" id="about-invite-cta">Request an invitation</a>
   </div>
