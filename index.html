@@ -463,69 +463,89 @@ body {
   display: block;
 }
 
+/* Label — matches .about-label */
 .gift-piece-label {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 11px;
-  letter-spacing: .5em;
+  font-size: 12px;
+  letter-spacing: .4em;
   text-transform: uppercase;
   color: var(--bone-60);
   display: block;
-  margin-bottom: .8rem;
+  margin-bottom: clamp(2rem, 3vh, 3rem);
+  padding-top: 1rem;
+}
+.gift-piece-label::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: .5px;
+  background: var(--bone-15);
+  margin: 0 auto 2rem;
 }
 
+/* Piece name — matches .about-primary */
 .gift-piece-name {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
-  font-size: clamp(28px, 4vw, 42px);
-  color: var(--bone);
-  margin-bottom: 1.5rem;
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.5;
+  color: var(--bone-60);
+  max-width: 620px;
+  margin: 0 auto clamp(3rem, 5vh, 4rem);
 }
 
+/* Description — matches .about-body-text */
 .gift-piece-desc {
   font-family: 'Lora', serif;
   font-weight: 400;
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 2;
-  color: var(--bone);
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.9;
+  color: var(--bone-30);
+  max-width: 600px;
+  margin: 0 auto;
 }
-.gift-piece-desc em { color: var(--bone); font-weight: 500; }
+.gift-piece-desc em { color: var(--bone-60); font-weight: 500; }
 
 /* Note section */
 .gift-note {
-  padding: clamp(3rem, 6vh, 6rem) 2rem;
-  max-width: 560px;
+  padding: clamp(4rem, 7vh, 6rem) 2rem;
+  max-width: 620px;
   margin: 0 auto;
   text-align: center;
-}
-
-.gift-note-rule {
-  width: 1px; height: 40px;
-  background: linear-gradient(180deg, transparent, var(--bone-30), transparent);
-  margin: 0 auto 2.5rem;
 }
 
 .gift-note-label {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 11px;
-  letter-spacing: .5em;
+  font-size: 12px;
+  letter-spacing: .4em;
   text-transform: uppercase;
   color: var(--bone-60);
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+  padding-top: 1rem;
+}
+.gift-note-label::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: .5px;
+  background: var(--bone-15);
+  margin: 0 auto 2rem;
 }
 
+/* Note text — matches .about-primary */
 .gift-note-text {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
-  font-size: clamp(20px, 3vw, 28px);
-  line-height: 1.7;
-  color: var(--bone);
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.6;
+  color: var(--bone-60);
 }
-.gift-note-text em { color: var(--bone); font-weight: 500; }
+.gift-note-text em { color: var(--bone); font-weight: 400; }
 
 /* Media section */
 .gift-media {
@@ -537,8 +557,8 @@ body {
 .gift-media-label {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 11px;
-  letter-spacing: .5em;
+  font-size: 12px;
+  letter-spacing: .4em;
   text-transform: uppercase;
   color: var(--bone-60);
   text-align: center;
