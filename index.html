@@ -55,28 +55,32 @@ body {
   object-fit: cover;
 }
 
+/* Logo image — invert black logo to white for dark bg */
+.logo-img {
+  height: 28px;
+  width: auto;
+  filter: invert(1);
+  opacity: .7;
+  transition: opacity .4s;
+}
+.logo-img:hover { opacity: 1; }
+.logo-img-sm { height: 18px; opacity: .3; }
+
 /* Top-left logo — hidden during video, appears when CTAs appear */
 #logo-replay {
   position: absolute;
   top: 2rem; left: 2.5rem;
   z-index: 20;
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: .5em;
-  text-transform: uppercase;
-  color: var(--bone-30);
   text-decoration: none;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 1s var(--ease), color .4s;
+  transition: opacity 1s var(--ease);
   pointer-events: none;
 }
 #logo-replay.show {
   opacity: 1;
   pointer-events: auto;
 }
-#logo-replay:hover { color: var(--bone-60); }
 
 /* CTAs — centered below where the video logo sits */
 #ctas {
@@ -605,7 +609,7 @@ body {
 <div id="landing">
   <video id="hero-video" autoplay muted playsinline></video>
 
-  <a id="logo-replay">House Harlequin</a>
+  <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
   <div id="ctas">
     <a class="cta" id="cta-about">About the House</a>
@@ -644,7 +648,7 @@ body {
 
 <!-- ══════════ ABOUT PAGE ══════════ -->
 <div id="about-page">
-  <a class="about-back" id="about-back">&larr; Return</a>
+  <a class="about-back" id="about-back"><img src="logo.png" alt="House Harlequin" class="logo-img" style="height:24px; opacity:.5;"></a>
 
   <div class="about-body">
     <span class="about-label">The House</span>
@@ -733,7 +737,7 @@ body {
   </div>
 
   <footer class="gift-footer">
-    <span>House Harlequin</span>
+    <img src="logo.png" alt="House Harlequin" class="logo-img logo-img-sm">
   </footer>
 </div>
 
