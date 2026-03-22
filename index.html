@@ -626,7 +626,8 @@ body {
   <script>
     // Set video source BEFORE it starts loading — must be inline, not deferred
     var v = document.getElementById('hero-video');
-    v.src = window.matchMedia('(max-width: 768px)').matches ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
+    // Use portrait video on any device where height > width (phones, portrait tablets)
+    v.src = (window.innerHeight > window.innerWidth) ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
   </script>
 
   <header class="about-header" id="home-header" style="opacity:0; pointer-events:none; transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1);">
