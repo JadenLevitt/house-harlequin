@@ -84,7 +84,7 @@ body {
 }
 #logo-replay.show { opacity: 1; pointer-events: auto; }
 #logo-replay .logo-img {
-  height: 60px;
+  height: 80px;
   filter: none;
   opacity: .9;
 }
@@ -130,20 +130,20 @@ body {
 
 .cta {
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 10px;
-  letter-spacing: .4em;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: .35em;
   text-transform: uppercase;
-  color: rgba(20,18,24,.7);
+  color: rgba(10,8,12,.85);
   text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: .5px solid rgba(20,18,24,.3);
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(10,8,12,.4);
   transition: color .4s, border-color .4s;
   cursor: pointer;
 }
 .cta:hover {
-  color: rgba(20,18,24,.95);
-  border-color: rgba(20,18,24,.6);
+  color: rgba(10,8,12,1);
+  border-color: rgba(10,8,12,.7);
 }
 
 /* ══════════════════════════════
@@ -309,7 +309,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.about-back .logo-img { height: 60px; opacity: .6; }
+.about-back .logo-img { height: 80px; opacity: .6; }
 .about-back .logo-img:hover { opacity: 1; }
 
 .about-body {
@@ -676,7 +676,7 @@ body {
 
   <!-- Logo -->
   <div style="text-align:center; padding-top:2.5rem; margin-bottom:-2rem; position:relative; z-index:2;">
-    <a data-nav="/"><img src="logo.png" alt="House Harlequin" class="logo-img" style="height:60px; opacity:.6;"></a>
+    <a data-nav="/"><img src="logo.png" alt="House Harlequin" class="logo-img" style="height:80px; opacity:.6;"></a>
   </div>
 
   <!-- Piece -->
@@ -779,7 +779,7 @@ video.addEventListener('error', () => {
 
 // Pause 0.1s before end to freeze on visible frame
 video.addEventListener('timeupdate', () => {
-  if (video.duration && video.currentTime >= video.duration - 1.0) {
+  if (video.duration && video.currentTime >= video.duration - 0.8) {
     video.pause();
     ctas.classList.add('show');
     logo.classList.add('show');
