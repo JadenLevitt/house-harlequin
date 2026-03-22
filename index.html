@@ -71,21 +71,11 @@ body {
 }
 
 #logo-replay {
-  position: absolute;
-  top: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 1.2s var(--ease);
-  pointer-events: none;
 }
-#logo-replay.show { opacity: 1; pointer-events: auto; }
 #logo-replay .logo-img {
   height: 52px;
-  filter: none;
   opacity: .9;
 }
 
@@ -639,7 +629,9 @@ body {
     v.src = window.matchMedia('(max-width: 768px)').matches ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
   </script>
 
-  <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
+  <header class="about-header" id="home-header" style="opacity:0; pointer-events:none; transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1);">
+    <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img" style="filter:none;"></a>
+  </header>
 
   <button id="unmute-btn" aria-label="Unmute">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -807,8 +799,7 @@ function navigate(path, push = true) {
     if (push && video.duration) {
       video.currentTime = video.duration - 0.8;
       video.pause();
-      ctas.classList.add('show');
-      logo.classList.add('show');
+      showHomeUI();
     }
     return;
   }
@@ -836,23 +827,31 @@ navigate(location.pathname, false);
 const video = document.getElementById('hero-video');
 const ctas = document.getElementById('ctas');
 const logo = document.getElementById('logo-replay');
+const homeHeader = document.getElementById('home-header');
+
+function showHomeUI() {
+  ctas.classList.add('show');
+  homeHeader.style.opacity = '1';
+  homeHeader.style.pointerEvents = 'auto';
+}
+function hideHomeUI() {
+  ctas.classList.remove('show');
+  homeHeader.style.opacity = '0';
+  homeHeader.style.pointerEvents = 'none';
+}
 
 // Ensure video plays
 video.addEventListener('canplay', () => video.play().catch(() => {}));
 video.play().catch(() => {});
 
 // If video fails, show CTAs
-video.addEventListener('error', () => {
-  ctas.classList.add('show');
-  logo.classList.add('show');
-});
+video.addEventListener('error', () => showHomeUI());
 
-// Pause 0.1s before end to freeze on visible frame
+// Pause 0.8s before end to freeze on visible frame
 video.addEventListener('timeupdate', () => {
   if (video.duration && video.currentTime >= video.duration - 0.8) {
     video.pause();
-    ctas.classList.add('show');
-    logo.classList.add('show');
+    showHomeUI();
   }
 });
 
@@ -869,8 +868,7 @@ unmuteBtn.addEventListener('click', () => {
 
 // Logo click → replay video WITH sound
 logo.addEventListener('click', () => {
-  ctas.classList.remove('show');
-  logo.classList.remove('show');
+  hideHomeUI();
   video.muted = false;
   video.currentTime = 0;
   video.play();
