@@ -765,9 +765,20 @@ const video = document.getElementById('hero-video');
 /* ── Swap to mobile video if needed ── */
 if (window.matchMedia('(max-width: 768px)').matches) {
   video.src = 'brand-film-mobile.mp4';
-  video.load();
-  video.play().catch(() => {});
 }
+
+/* ── Ensure video plays — fallback for autoplay policy ── */
+video.addEventListener('canplay', () => {
+  video.play().catch(() => {});
+});
+// Also try immediately
+video.play().catch(() => {});
+
+/* ── If video completely fails to load, show CTAs anyway ── */
+video.addEventListener('error', () => {
+  ctas.classList.add('show');
+  logo.classList.add('show');
+});
 const ctas = document.getElementById('ctas');
 const logo = document.getElementById('logo-replay');
 const landing = document.getElementById('landing');
