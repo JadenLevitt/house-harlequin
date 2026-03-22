@@ -622,13 +622,13 @@ body {
 
 <!-- ══════════ LANDING — / ══════════ -->
 <div id="page-home" class="page">
-  <video id="hero-video" autoplay muted playsinline></video>
   <script>
-    // Set video source BEFORE it starts loading — must be inline, not deferred
-    var v = document.getElementById('hero-video');
-    // Use portrait video on any device where height > width (phones, portrait tablets)
-    v.src = (window.innerHeight > window.innerWidth) ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
+    // Write the video tag with correct source BEFORE browser parses it
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (screen.width <= 1024 && 'ontouchstart' in window);
+    var vidSrc = isMobile ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
+    document.write('<video id="hero-video" autoplay muted playsinline src="' + vidSrc + '"></video>');
   </script>
+  <noscript><video id="hero-video" autoplay muted playsinline src="brand-film-desktop.mp4"></video></noscript>
 
   <a id="logo-replay" style="position:absolute; top:1.5rem; left:50%; transform:translateX(-50%); z-index:20; text-decoration:none; cursor:pointer; opacity:0; pointer-events:none; transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1);">
     <img src="logo.png" alt="House Harlequin" class="logo-img" style="height:52px; filter:none; opacity:.9;">
