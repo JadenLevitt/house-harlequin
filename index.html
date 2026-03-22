@@ -632,9 +632,12 @@ body {
 
 <!-- ══════════ LANDING — / ══════════ -->
 <div id="page-home" class="page">
-  <video id="hero-video" autoplay muted playsinline>
-    <source src="brand-film-desktop.mp4" type="video/mp4">
-  </video>
+  <video id="hero-video" autoplay muted playsinline></video>
+  <script>
+    // Set video source BEFORE it starts loading — must be inline, not deferred
+    var v = document.getElementById('hero-video');
+    v.src = window.matchMedia('(max-width: 768px)').matches ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
+  </script>
 
   <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
@@ -833,11 +836,6 @@ navigate(location.pathname, false);
 const video = document.getElementById('hero-video');
 const ctas = document.getElementById('ctas');
 const logo = document.getElementById('logo-replay');
-
-// Swap to mobile video if needed
-if (window.matchMedia('(max-width: 768px)').matches) {
-  video.src = 'brand-film-mobile.mp4';
-}
 
 // Ensure video plays
 video.addEventListener('canplay', () => video.play().catch(() => {}));
