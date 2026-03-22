@@ -798,10 +798,16 @@ function navigate(path, push = true) {
     document.getElementById('page-twopotatoes').classList.add('show');
     document.title = 'Someone noticed you — House Harlequin';
   } else {
-    // Home
+    // Home — jump to freeze frame if returning from another page
     document.getElementById('page-home').classList.add('show');
     document.title = 'House Harlequin';
-    return; // don't scroll — landing is viewport-height
+    if (push && video.duration) {
+      video.currentTime = video.duration - 0.8;
+      video.pause();
+      ctas.classList.add('show');
+      logo.classList.add('show');
+    }
+    return;
   }
   window.scrollTo(0, 0);
 }
