@@ -619,7 +619,9 @@ body {
 
 <!-- ══════════ LANDING ══════════ -->
 <div id="landing">
-  <video id="hero-video" autoplay muted playsinline></video>
+  <video id="hero-video" autoplay muted playsinline>
+    <source src="brand-film-desktop.mp4" type="video/mp4">
+  </video>
 
   <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
@@ -760,11 +762,12 @@ body {
 <script>
 const video = document.getElementById('hero-video');
 
-/* ── Responsive video source ── */
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
-video.src = isMobile ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
-video.load();
-video.play().catch(() => {});
+/* ── Swap to mobile video if needed ── */
+if (window.matchMedia('(max-width: 768px)').matches) {
+  video.src = 'brand-film-mobile.mp4';
+  video.load();
+  video.play().catch(() => {});
+}
 const ctas = document.getElementById('ctas');
 const logo = document.getElementById('logo-replay');
 const landing = document.getElementById('landing');
