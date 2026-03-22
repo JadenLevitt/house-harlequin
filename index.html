@@ -630,9 +630,9 @@ body {
     v.src = (window.innerHeight > window.innerWidth) ? 'brand-film-mobile.mp4' : 'brand-film-desktop.mp4';
   </script>
 
-  <header class="about-header" id="home-header" style="opacity:0; pointer-events:none; transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1);">
-    <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img" style="filter:none;"></a>
-  </header>
+  <a id="logo-replay" style="position:absolute; top:1.5rem; left:50%; transform:translateX(-50%); z-index:20; text-decoration:none; cursor:pointer; opacity:0; pointer-events:none; transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1);">
+    <img src="logo.png" alt="House Harlequin" class="logo-img" style="height:52px; filter:none; opacity:.9;">
+  </a>
 
   <button id="unmute-btn" aria-label="Unmute">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -828,17 +828,16 @@ navigate(location.pathname, false);
 const video = document.getElementById('hero-video');
 const ctas = document.getElementById('ctas');
 const logo = document.getElementById('logo-replay');
-const homeHeader = document.getElementById('home-header');
 
 function showHomeUI() {
   ctas.classList.add('show');
-  homeHeader.style.opacity = '1';
-  homeHeader.style.pointerEvents = 'auto';
+  logo.style.opacity = '1';
+  logo.style.pointerEvents = 'auto';
 }
 function hideHomeUI() {
   ctas.classList.remove('show');
-  homeHeader.style.opacity = '0';
-  homeHeader.style.pointerEvents = 'none';
+  logo.style.opacity = '0';
+  logo.style.pointerEvents = 'none';
 }
 
 // Ensure video plays
