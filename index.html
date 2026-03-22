@@ -85,6 +85,30 @@ body {
 #logo-replay.show { opacity: 1; pointer-events: auto; }
 #logo-replay .logo-img { height: 60px; }
 
+/* Unmute button */
+#unmute-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 20;
+  background: none;
+  border: 1px solid var(--bone-15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bone-30);
+  cursor: pointer;
+  transition: color .4s, border-color .4s;
+}
+#unmute-btn:hover {
+  color: var(--bone-60);
+  border-color: var(--bone-30);
+}
+#unmute-btn.unmuted svg line { display: none; }
+
 #ctas {
   position: absolute;
   top: 67%;
@@ -553,6 +577,14 @@ body {
 
   <a id="logo-replay"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
+  <button id="unmute-btn" aria-label="Unmute">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
+
   <div id="ctas">
     <a class="cta" data-nav="/aboutthehouse">About the House</a>
     <a class="cta" id="cta-noticed">Did someone notice you?</a>
@@ -750,12 +782,27 @@ video.addEventListener('timeupdate', () => {
   }
 });
 
-// Logo click → replay video
+// Unmute toggle
+const unmuteBtn = document.getElementById('unmute-btn');
+unmuteBtn.addEventListener('click', () => {
+  video.muted = !video.muted;
+  unmuteBtn.classList.toggle('unmuted', !video.muted);
+  // Update SVG — show speaker lines when unmuted
+  unmuteBtn.innerHTML = video.muted
+    ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>'
+    : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>';
+});
+
+// Logo click → replay video WITH sound
 logo.addEventListener('click', () => {
   ctas.classList.remove('show');
   logo.classList.remove('show');
+  video.muted = false;
   video.currentTime = 0;
   video.play();
+  // Update unmute button to show unmuted state
+  unmuteBtn.classList.add('unmuted');
+  unmuteBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>';
 });
 
 /* ══════════════════════════════
