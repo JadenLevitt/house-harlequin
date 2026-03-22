@@ -775,7 +775,7 @@ video.addEventListener('error', () => {
 
 // Pause 0.1s before end to freeze on visible frame
 video.addEventListener('timeupdate', () => {
-  if (video.duration && video.currentTime >= video.duration - 0.1) {
+  if (video.duration && video.currentTime >= video.duration - 1.5) {
     video.pause();
     ctas.classList.add('show');
     logo.classList.add('show');
