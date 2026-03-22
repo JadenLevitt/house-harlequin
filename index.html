@@ -300,101 +300,156 @@ body {
 /* ══════════════════════════════
    ABOUT PAGE — /aboutthehouse
 ══════════════════════════════ */
-.about-back {
+
+/* Fixed header */
+.about-header {
   position: fixed;
-  top: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  text-decoration: none;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background: rgba(5,4,7,.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-.about-back .logo-img { height: 80px; opacity: .6; }
-.about-back .logo-img:hover { opacity: 1; }
+.about-header a { text-decoration: none; cursor: pointer; }
+.about-header .logo-img { height: 52px; opacity: .7; }
+.about-header .logo-img:hover { opacity: 1; }
 
-.about-body {
-  max-width: 740px;
-  margin: 0 auto;
-  padding: clamp(8rem, 16vh, 14rem) 3rem clamp(6rem, 10vh, 10rem);
-  text-align: center;
-}
-
-.about-label {
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 8px;
-  letter-spacing: .6em;
-  text-transform: uppercase;
-  color: var(--champ-40);
-  display: block;
-  margin-bottom: .8rem;
-}
-
-.about-headline {
-  font-family: 'Lora', serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(28px, 4vw, 42px);
-  color: var(--bone);
-  line-height: 1.25;
-  margin-bottom: 3.5rem;
-}
-
-.about-text {
-  font-family: 'Lora', serif;
-  font-weight: 400;
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 2;
-  color: var(--bone-60);
-  margin-bottom: 2rem;
-  font-variant: small-caps;
-  text-transform: lowercase;
-}
-.about-text em { font-style: italic; color: var(--bone); font-weight: 500; }
-
-.about-rule {
-  width: 32px;
-  height: .5px;
-  background: var(--champ-20);
-  border: none;
-  margin: 2.5rem auto;
-}
-
-.about-box-wrap {
-  margin: 0 0 3rem;
+/* Hero image area */
+.about-hero {
+  padding: clamp(7rem, 12vh, 10rem) 2rem clamp(4rem, 8vh, 8rem);
   display: flex;
   justify-content: center;
+}
+.about-box-wrap {
   animation: gentle-bounce 3s ease-in-out infinite;
 }
 @keyframes gentle-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-
 .about-box-img {
-  width: clamp(220px, 45vw, 340px);
+  width: clamp(200px, 40vw, 300px);
   height: auto;
   opacity: .9;
 }
 
-.about-cta-wrap { text-align: center; padding: 3rem 0 4rem; }
+/* Content container */
+.about-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 5vw, 4rem) clamp(6rem, 12vh, 10rem);
+  text-align: center;
+}
 
+/* Section label — chapter marker */
+.about-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--bone-60);
+  display: block;
+  margin-bottom: clamp(4rem, 7vh, 6rem);
+  padding-top: 1rem;
+}
+.about-label::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: .5px;
+  background: var(--bone-15);
+  margin: 0 auto 2rem;
+}
+
+/* Primary statement — large, emotional */
+.about-primary {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.5;
+  color: var(--bone-60);
+  max-width: 620px;
+  margin: 0 auto clamp(4rem, 7vh, 6rem);
+}
+.about-primary em {
+  font-weight: 400;
+  color: var(--bone);
+}
+
+/* Secondary body text */
+.about-body-text {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.9;
+  color: var(--bone-30);
+  max-width: 600px;
+  margin: 0 auto 1.8rem;
+}
+.about-body-text em {
+  font-style: italic;
+  color: var(--bone-60);
+  font-weight: 500;
+}
+
+/* Beat spacer — generous breathing room */
+.about-beat {
+  margin-bottom: clamp(4rem, 7vh, 6rem);
+}
+
+/* Rule divider */
+.about-rule {
+  width: 40px;
+  height: .5px;
+  background: var(--bone-15);
+  border: none;
+  margin: clamp(3.5rem, 6vh, 5rem) auto;
+}
+
+/* CTA */
+.about-cta-wrap {
+  text-align: center;
+  padding-top: clamp(3rem, 5vh, 4rem);
+}
+.about-cta-wrap::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: .5px;
+  background: var(--bone-15);
+  margin: 0 auto 3rem;
+}
 .about-cta {
   display: inline-block;
   font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: .45em;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: .4em;
   text-transform: uppercase;
   color: var(--bone-60);
   text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: .5px solid var(--bone-30);
-  margin-top: 2rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--bone-15);
   cursor: pointer;
-  transition: color .4s, border-color .4s;
+  transition: color .5s, border-color .5s;
 }
-.about-cta:hover { color: var(--bone); border-color: var(--bone-60); }
+.about-cta:hover {
+  color: var(--bone);
+  border-color: var(--bone-30);
+}
+
+@media (max-width: 600px) {
+  .about-header { height: 64px; }
+  .about-header .logo-img { height: 40px; }
+  .about-hero { padding-top: 5rem; }
+}
 
 /* ══════════════════════════════
    GIFT PAGE — /noticed pages
@@ -628,47 +683,58 @@ body {
 
 <!-- ══════════ ABOUT — /aboutthehouse ══════════ -->
 <div id="page-about" class="page">
-  <a class="about-back" data-nav="/"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
 
-  <div class="about-body">
+  <header class="about-header">
+    <a data-nav="/"><img src="logo.png" alt="House Harlequin" class="logo-img"></a>
+  </header>
+
+  <div class="about-hero">
     <div class="about-box-wrap">
       <img src="box.png" alt="House Harlequin" class="about-box-img">
     </div>
+  </div>
+
+  <div class="about-body">
 
     <span class="about-label">The House</span>
 
-    <p class="about-text">
-      House Harlequin is devoted to <em>the art of noticing.</em>
-    </p>
-    <p class="about-text">
-      We are drawn to beauty wherever it appears — in light, in movement, in texture, in atmosphere, and <em>in her.</em>
-    </p>
-    <p class="about-text">
-      We do not make things beautiful. We reveal what is already there.
-    </p>
+    <!-- Beat 1: Opening statement -->
+    <div class="about-beat">
+      <p class="about-primary">House Harlequin is devoted to <em>the art of noticing.</em></p>
+    </div>
+
+    <!-- Beat 2: Philosophy -->
+    <div class="about-beat">
+      <p class="about-body-text">We are drawn to beauty wherever it appears — in light, in movement, in texture, in atmosphere, and <em>in her.</em></p>
+      <p class="about-body-text">We do not make things beautiful. We reveal what is already there.</p>
+    </div>
 
     <hr class="about-rule">
 
-    <p class="about-text">
-      Sometimes what matters is <em>noticing yourself.</em><br>
-      Sometimes what matters is <em>being noticed by someone else.</em>
-    </p>
-    <p class="about-text">
-      Every piece begins with that gesture: an act of recognition, affection, and attention.
-    </p>
+    <!-- Beat 3: The gesture -->
+    <div class="about-beat">
+      <p class="about-primary">Sometimes what matters is <em>noticing yourself.</em></p>
+      <p class="about-primary">Sometimes what matters is <em>being noticed by someone else.</em></p>
+    </div>
+
+    <!-- Beat 4: Recognition -->
+    <div class="about-beat">
+      <p class="about-body-text">Every piece begins with that gesture: an act of recognition, affection, and attention.</p>
+    </div>
 
     <hr class="about-rule">
 
-    <p class="about-text">
-      House Harlequin creates bespoke couture fine jewelry in close dialogue with the individual, for oneself or for someone deeply loved.
-    </p>
-    <p class="about-text">
-      Each piece is made privately, precisely, and with the conviction that beauty, once noticed, <em>deserves form.</em>
-    </p>
+    <!-- Beat 5: The house -->
+    <div class="about-beat">
+      <p class="about-body-text">House Harlequin creates bespoke couture fine jewelry in close dialogue with the individual, for oneself or for someone deeply loved.</p>
+      <p class="about-body-text">Each piece is made privately, precisely, and with the conviction that beauty, once noticed, <em>deserves form.</em></p>
+    </div>
 
+    <!-- CTA -->
     <div class="about-cta-wrap">
       <a class="about-cta" id="about-invite-cta">Request an invitation</a>
     </div>
+
   </div>
 </div>
 
