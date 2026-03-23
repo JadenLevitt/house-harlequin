@@ -165,19 +165,31 @@ body {
 
 .modal-close {
   position: absolute;
-  top: 2rem; right: 2.5rem;
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--bone-30);
-  cursor: pointer;
+  top: 1.5rem; right: 1.8rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bone-15);
+  border-radius: 50%;
   background: none;
-  border: none;
-  transition: color .3s;
+  color: var(--bone-60);
+  cursor: pointer;
+  transition: color .3s, border-color .3s;
+  font-size: 0;
 }
-.modal-close:hover { color: var(--bone-60); }
+.modal-close::before,
+.modal-close::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+}
+.modal-close::before { transform: rotate(45deg); }
+.modal-close::after { transform: rotate(-45deg); }
+.modal-close:hover { color: var(--bone); border-color: var(--bone-30); }
 
 .modal-title {
   font-family: 'Cormorant Garamond', serif;
@@ -671,7 +683,7 @@ body {
     <p class="modal-title">Did someone<br><em>notice you?</em></p>
     <p class="modal-sub">Enter your private passphrase</p>
     <form id="pass-form" autocomplete="off">
-      <input type="text" class="modal-input" id="pass-input" placeholder="..." autocomplete="off" spellcheck="false">
+      <input type="text" class="modal-input" id="pass-input" placeholder="" autocomplete="off" spellcheck="false">
       <button type="submit" class="modal-submit">Enter</button>
     </form>
   </div>
@@ -681,8 +693,8 @@ body {
 <div class="modal-overlay" id="modal-invite">
   <button class="modal-close" id="invite-close">Close</button>
   <div class="modal">
-    <p class="modal-title">Request an invitation</p>
-    <p class="modal-sub">Tell us a little about yourself</p>
+    <p class="modal-title" id="invite-title">Request an invitation</p>
+    <p class="modal-sub" id="invite-sub">Tell us a little about yourself</p>
     <form id="invite-form" class="modal-form" autocomplete="off">
       <input type="text" class="modal-input" placeholder="Your name" required>
       <input type="email" class="modal-input" placeholder="Your email" required>
@@ -930,6 +942,8 @@ document.getElementById('invite-close').addEventListener('click', () => closeMod
 
 document.getElementById('invite-form').addEventListener('submit', e => {
   e.preventDefault();
+  document.getElementById('invite-title').style.display = 'none';
+  document.getElementById('invite-sub').style.display = 'none';
   document.getElementById('invite-form').classList.add('hidden');
   document.getElementById('invite-success').classList.add('show');
 });
