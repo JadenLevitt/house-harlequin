@@ -925,8 +925,9 @@ document.getElementById('pass-form').addEventListener('submit', e => {
   const dest = PASSPHRASES[val];
 
   if (dest) {
-    closeModal('modal-pass');
-    setTimeout(() => navigate(dest), 400);
+    // Navigate first (while modal stays open as dark overlay), then close after page is visible
+    navigate(dest);
+    setTimeout(() => closeModal('modal-pass'), 300);
   } else {
     const modal = input.closest('.modal');
     modal.classList.add('shake');
