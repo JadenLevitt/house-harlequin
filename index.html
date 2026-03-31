@@ -126,14 +126,19 @@ body {
   text-transform: uppercase;
   color: rgba(10,8,12,.95);
   text-decoration: none;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(10,8,12,.5);
-  transition: color .4s, border-color .4s;
+  padding: .7em 1.4em;
+  background: rgba(255,255,255,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 6px;
+  transition: background .4s, border-color .4s, color .4s;
   cursor: pointer;
 }
 .cta:hover {
+  background: rgba(255,255,255,.5);
+  border-color: rgba(255,255,255,.4);
   color: rgba(10,8,12,1);
-  border-color: rgba(10,8,12,.8);
 }
 
 /* ══════════════════════════════
